@@ -1,0 +1,32 @@
+<div ng-show="leftPanel.currentPanel === 'topics'">
+  <div class="toolbar">
+    <button type="button" class="btn btn-primary btn-sm btn-block" ng-click="newTopic()">New Topic</button>
+  </div>
+  <accordion  close-others="true">
+    <accordion-group heading="{{topic.label}}" 
+                     ng-repeat="topic in leftPanel.topics track by $index"
+                     is-open="topic.open">
+      <accordion-heading>
+        <span ng-click="onTopic(topic, $index)">{{topic.label}}</span>
+      </accordion-heading>
+      <!-- the sections -->
+      <ol style="padding-left:20px;">
+        <li ng-repeat="section in topic.sections track by $index">
+          <button class="btn btn-link btn-xs" ng-click="showSection(section.id, $index)">
+              {{section.title}}
+          </button>
+        </li>
+      </ol>
+      
+    </accordion-group>
+  </accordion>
+</div>
+<div ng-hide="leftPanel.currentPanel !== 'settings'">
+  <h4>Settings</h4>
+</div>
+<div ng-hide="leftPanel.currentPanel !== 'search'">
+  <div class="toolbar">
+    <button type="button" class="btn btn-primary btn-sm btn-block" 
+            ng-click="backToTopics()">Back to Topics</button>
+  </div>
+</div>

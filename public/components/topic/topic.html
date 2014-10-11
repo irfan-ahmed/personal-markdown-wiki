@@ -1,0 +1,21 @@
+<div class="page topic">
+  <div ng-hide="topic.current">
+    No Topic Selected
+  </div>
+  <div ng-show="topic.current">
+    <div class="topic-title">
+      <div class="toolbar">
+        <button type="button" class="btn btn-primary btn-xs" ng-click="newSection()">New Section</button>
+      </div>
+      <h2  class="text-primary">{{topic.current.label}}
+        <small>{{topic.current.desc}}</small>
+      </h2>
+    </div>
+    <div class="sectionContainer">
+      <div class="section" ng-repeat="section in topic.sections track by $index" 
+           ng-include="'components/topic/section.html'"></div>
+    </div>
+    
+  </div>
+</div>
+

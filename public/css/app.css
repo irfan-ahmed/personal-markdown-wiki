@@ -1,0 +1,248 @@
+/*
+The MIT License
+
+Copyright 2014 Irfan Ahmed.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
+body {
+  color: #444; }
+
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer; }
+
+.absPos, .appContainer, .header, .leftPanel, .contents, .contents .page.topic .topic-title, .contents .page.topic .sectionContainer, .footer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+.appContainer {
+  padding: 0;
+  overflow: hidden; }
+
+.toolbar {
+  text-align: right;
+  float: right; }
+  .toolbar a {
+    display: inline-block;
+    text-decoration: none;
+    color: #444;
+    text-transform: uppercase; }
+  .toolbar a:hover {
+    text-decoration: underline; }
+
+.header {
+  bottom: auto;
+  height: 50px;
+  border-bottom: 2px solid #dddddd;
+  line-height: 50px; }
+  .header h1, .header h2 {
+    margin: 3px 0;
+    padding: 0;
+    padding-left: 5px; }
+  .header .toolbar {
+    padding: 5px;
+    line-height: normal; }
+    .header .toolbar a {
+      margin: 0;
+      padding: 3px 7px;
+      background: #0b97c4;
+      color: #fff;
+      border-radius: 3px;
+      line-height: normal; }
+    .header .toolbar a:hover {
+      background: #0B7B9F; }
+    .header .toolbar .searchBar {
+      padding: 7px 0 5px 0;
+      line-height: 15px;
+      height: 15px;
+      display: inline-block; }
+      .header .toolbar .searchBar label {
+        font-weight: bold; }
+      .header .toolbar .searchBar input {
+        border: 1px solid #dddddd;
+        border-radius: 20px;
+        width: 300px;
+        padding: 4px 5px;
+        padding-left: 7px; }
+
+.leftPanel {
+  right: auto;
+  top: 50px;
+  bottom: 25px;
+  border-right: 2px solid #dddddd;
+  overflow: auto;
+  width: 250px;
+  padding: 5px; }
+  .leftPanel .toolbar {
+    padding-bottom: 5px;
+    float: none; }
+
+.animate-linear, .animate-left-panel-hide {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+  opacity: 1; }
+
+.animate-left-panel-hide.ng-hide {
+  width: 0;
+  padding: 0;
+  opacity: 0; }
+
+.contents {
+  top: 50px;
+  bottom: 25px;
+  overflow: auto;
+  left: 250px; }
+  .contents .page h2 {
+    margin: 0;
+    padding: 3px; }
+  .contents .page.search .searchSection {
+    text-align: center;
+    line-height: 20px;
+    margin: 15px 20px 5px 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px dotted #dddddd; }
+    .contents .page.search .searchSection label {
+      color: #0B7B9F;
+      text-transform: uppercase;
+      padding-right: 8px; }
+    .contents .page.search .searchSection input {
+      padding: 5px;
+      padding-left: 10px;
+      border: 1px solid #dddddd;
+      width: 50%;
+      border-radius: 15px; }
+  .contents .page.search .resultsSection {
+    margin: 20px 10px; }
+  .contents .page.topic .topic-title {
+    bottom: auto;
+    height: 34px;
+    overflow: hidden;
+    z-index: 999;
+    box-shadow: 0px 3px 3px #dddddd; }
+    .contents .page.topic .topic-title .toolbar {
+      right: 15px;
+      padding: 5px;
+      padding-top: 7px; }
+  .contents .page.topic .sectionContainer {
+    top: 40px;
+    overflow: auto; }
+    .contents .page.topic .sectionContainer .section {
+      margin: 0px 6px 15px 3px;
+      background: linear-gradient(#f0f0f0, #f9f9f9); }
+      .contents .page.topic .sectionContainer .section h3 {
+        margin: 0;
+        padding: 7px 8px;
+        border-bottom: 1px dotted #dddddd;
+        background: linear-gradient(#e0e0e0, #fefefe); }
+      .contents .page.topic .sectionContainer .section h4, .contents .page.topic .sectionContainer .section h5, .contents .page.topic .sectionContainer .section h6 {
+        margin-top: 5px;
+        margin-bottom: 4px; }
+      .contents .page.topic .sectionContainer .section .toolbar {
+        position: static;
+        padding-top: 5px;
+        padding-right: 5px; }
+      .contents .page.topic .sectionContainer .section .sectionHtml {
+        padding: 5px 20px 5px 30px;
+        border-radius: 0 0 7px 7px;
+        margin: 1px;
+        background: linear-gradient(white, #efefef); }
+        .contents .page.topic .sectionContainer .section .sectionHtml pre {
+          background: #fcf8e3;
+          margin-right: 40px; }
+      .contents .page.topic .sectionContainer .section .sectionEdit {
+        padding: 5px; }
+        .contents .page.topic .sectionContainer .section .sectionEdit textarea {
+          font-size: 85%; }
+        .contents .page.topic .sectionContainer .section .sectionEdit .mono {
+          font-family: Menlo, Monaco, Consolas, monospace; }
+
+/*.animate-contents {
+  @extend .animate-linear;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+  left: $leftPanelWidth;
+}
+
+.animate-contents.left {
+  left: 5px;
+}*/
+.footer {
+  height: 25px;
+  top: auto;
+  bottom: 0;
+  border-top: 2px solid #dddddd;
+  line-height: 25px;
+  background: #f9f9f9;
+  font-size: 90%;
+  text-align: center; }
+
+form.propSheet {
+  padding-left: 10px;
+  padding-top: 10px; }
+  form.propSheet table {
+    border: 1px solid #ccc;
+    width: 80%; }
+    form.propSheet table caption {
+      text-align: left;
+      font-weight: bold;
+      background: #c8c8c8;
+      padding: 5px 3px 0px 3px;
+      border-radius: 3px 3px 0 0; }
+      form.propSheet table caption .heading {
+        padding-left: 3px;
+        padding-top: 1px;
+        display: inline-block; }
+      form.propSheet table caption .toolbar {
+        text-align: right;
+        margin-bottom: 5px;
+        padding-right: 5px; }
+        form.propSheet table caption .toolbar button {
+          font-size: 80%;
+          font-weight: bold; }
+    form.propSheet table th, form.propSheet table td {
+      padding: 5px;
+      border: 1px solid #ccc;
+      text-align: left; }
+    form.propSheet table th {
+      background: #eee;
+      font-size: 90%;
+      font-weight: normal;
+      color: #444; }
+    form.propSheet table .actionCol {
+      width: 2%;
+      text-align: center; }
+      form.propSheet table .actionCol .icon {
+        font-size: 80%;
+        color: blue; }
+    form.propSheet table tfoot {
+      font-size: 90%;
+      color: #999999; }
+
+.modal-dialog .propSheet label {
+  width: 90px;
+  text-align: right; }
+.modal-dialog .propSheet input[type=text] {
+  border: 1px solid #dddddd; }
+.modal-dialog .propSheet .help {
+  font-size: 90%;
+  color: #999999;
+  margin-left: 95px; }

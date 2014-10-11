@@ -1,0 +1,23 @@
+<div class="toolbar">
+  <button ng-click="save(section)" title="Save" class="btn btn-info btn-xs"
+          ng-show="currentEditID===section.id">Save</button>
+  <button ng-click="cancel(section)" title="Cancel" class="btn btn-warning btn-xs"
+          ng-show="currentEditID===section.id">Cancel</button>
+  <button ng-click="edit(section)" title="Click to edit the section entry." 
+          class="btn btn-info btn-xs" ng-hide="currentEditID===section.id">Edit</button>
+  <button ng-click="remove(section, $index)" title="Delete" ng-hide="currentEditID===section.id"
+          class="btn btn-warning btn-xs">Delete</button>
+</div>
+<h3 class="text-info" id="{{section.id}}">{{section.title}}</h3>
+<div ng-bind-html="getHtml(section)" ng-hide="currentEditID === section.id"
+     class="sectionHtml"></div>
+<div ng-show="showEdit(section.id)" id="editsection_{{section.id}}"
+     class="sectionEdit">
+  <div class="form-group">
+    <input type="text" ng-model="section.title" class="form-control"/>
+  </div>
+  <div class="form-group">
+    <textarea class="mono form-control" style="height:{{currentEditHeight}}em" ng-model="section.markdown"
+              ng-allow-tab="2"></textarea>
+  </div>
+</div>            

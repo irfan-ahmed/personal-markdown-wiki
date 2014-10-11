@@ -1,0 +1,37 @@
+<div class="page">
+  <h2>Settings</h2>
+  <form name="settingsForm" class="propSheet">
+    <table role="layout">
+      <caption>
+        <span class="heading">Topics</span>
+        <div class="toolbar">
+          <button ng-click="addTopic()">New Topic</button>
+        </div>
+      </caption>
+      <thead>
+        <tr>
+          <th>Name</th><th>Description</th>
+          <th class="actionCol">Rename</th>
+          <th class="actionCol">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="topic in settings.topics track by $index">
+          <td>{{topic.label}}</td>
+          <td>{{topic.desc}}</td>
+          <td class="actionCol">
+            <button ng-click="deleteTopic(topic, $index)" class="icon">Rename</button>
+          </td>
+          <td class="actionCol">
+            <button ng-click="renameTopic(topic, $index)" class="icon">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot ng-show="topics.length===0">
+        <tr>
+          <td colspan="4">No topics available. Click 'Add Topic' to add a new topic.</td>
+        </tr>
+      </tfoot>
+    </table>
+  </form>
+</div>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="pmdApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="pmdApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="pmdApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="pmdApp" class="no-js" ng-controller="PMDAppCtrl"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Personal Markdown Wiki</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+    <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="appContainer">
+      <div ng-include=" 'components/header/header.html' " ng-controller="HeaderCtrl" class="header"></div>
+      <div ng-include=" 'components/leftpanel/leftpanel.html'" class="leftPanel" 
+           ng-controller="LeftPanelCtrl"></div>
+      <div ng-view class="contents" onload="onViewLoaded()"></div>
+      <div ng-include=" 'components/footer/footer.html' " ng-controller="FooterCtrl" class="footer">
+        Copyright &copy; 2014, Irfan Ahmed. All Rights Reserved
+      </div>
+    </div>
+      
+    <!-- In production use:
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+    -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/marked/lib/marked.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+    <script>
+      if(typeof hljs !== "undefined") {
+        hljs.initHighlightingOnLoad();
+      }
+    </script>
+    <script src="app.js"></script>
+    <script src="components/header/header.js"></script>
+    <script src="components/footer/footer.js"></script>
+    <script src="components/leftpanel/leftpanel.js"></script>
+    <script src="components/settings/settings.js"></script>
+    <script src="components/search/search.js"></script>
+    <script src="components/topic/topic.js"></script>
+    <script src="components/services/store.js"></script>
+  </body>
+</html>
