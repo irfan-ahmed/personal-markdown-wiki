@@ -16,8 +16,12 @@
   <div class="form-group">
     <input type="text" ng-model="section.title" class="form-control"/>
   </div>
-  <div class="form-group">
-    <textarea class="mono form-control" style="height:{{currentEditHeight}}em" ng-model="section.markdown"
-              ng-allow-tab="2"></textarea>
+  <div class="form-group" style="position:relative;">
+    <div class="help pull-right container" ng-include=" 'components/topic/sectionhelp.html' "></div>
+    <div class="editContainer">
+      <textarea class="mono form-control" style="height:{{currentEditHeight}}em" 
+                ng-model="section.markdown"
+                ng-allow-tab="2"></textarea>
+    </div>
   </div>
 </div>            

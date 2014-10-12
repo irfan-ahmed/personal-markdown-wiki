@@ -254,10 +254,25 @@ $secondaryButtonColor: blue;
 
         .sectionEdit {
           padding: 5px;
-
-          textarea {
-            font-size: 85%;
-            line-height: normal;
+          
+          .editContainer {
+              margin-right: 190px;
+              background: pink;
+              
+              textarea {
+                font-size: 11px;
+                line-height: normal;
+                margin-right: 200px;
+              }
+          }
+          
+          .help {
+              width:175px;
+              
+              .table td {
+                  padding: 1px 3px;
+                  font-size: 11px;
+              }
           }
 
           .mono {

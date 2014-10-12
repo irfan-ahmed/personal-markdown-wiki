@@ -171,9 +171,18 @@ body {
           margin-right: 40px; }
       .contents .page.topic .sectionContainer .section .sectionEdit {
         padding: 5px; }
-        .contents .page.topic .sectionContainer .section .sectionEdit textarea {
-          font-size: 85%;
-          line-height: normal; }
+        .contents .page.topic .sectionContainer .section .sectionEdit .editContainer {
+          margin-right: 190px;
+          background: pink; }
+          .contents .page.topic .sectionContainer .section .sectionEdit .editContainer textarea {
+            font-size: 11px;
+            line-height: normal;
+            margin-right: 200px; }
+        .contents .page.topic .sectionContainer .section .sectionEdit .help {
+          width: 175px; }
+          .contents .page.topic .sectionContainer .section .sectionEdit .help .table td {
+            padding: 1px 3px;
+            font-size: 11px; }
         .contents .page.topic .sectionContainer .section .sectionEdit .mono {
           font-family: Menlo, Monaco, Consolas, monospace; }
 
