@@ -33,7 +33,7 @@ Just start the application using node and the `main.js` script.
 ```
 node main.js
 ```
-This will start the node server. The application will be available on port `9090`
+This will start the node server. The application will be available on port `9090`. The application is divided into Topics and sections. Each topic can have several sections. You can click on `New Topic` to create a topic and then click on `New Section` to start adding sections to the topic. Each section has an `Edit` and `Delete` button which are self explanatory. In edit mode, you can `Save` or  `Cancel` the edit.
 
 ###License
 [MIT](https://github.com/irfan-ahmed/personal-markdown-wiki/blob/master/LICENSE)
