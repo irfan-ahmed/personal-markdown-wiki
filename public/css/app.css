@@ -172,7 +172,8 @@ body {
       .contents .page.topic .sectionContainer .section .sectionEdit {
         padding: 5px; }
         .contents .page.topic .sectionContainer .section .sectionEdit textarea {
-          font-size: 85%; }
+          font-size: 85%;
+          line-height: normal; }
         .contents .page.topic .sectionContainer .section .sectionEdit .mono {
           font-family: Menlo, Monaco, Consolas, monospace; }
 
