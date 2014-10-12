@@ -65,6 +65,11 @@
         }
     ]);
     
+    /**
+     * This directive allows one to enter a tab and move a set number of spaces forward or
+     * back. The number of spaces to move can be configured as the value of the directive
+     * Eg: <textarea ng-allow-tab="4"/></textarea> will move 4 spaces on a tab
+     */
     module.directive('ngAllowTab', function () {
         var tab = "  ";
         return function (scope, element, attrs) {
@@ -100,6 +105,10 @@
         };
     });
 
+    /**
+     * A directive to trap the enter key and evaluate a provided expression. This can be 
+     * attached to input text fields.
+     */
     module.directive("ngEnter", function () {
         return function (scope, element, attrs) {
             element.bind("keydown keypress", function (event) {

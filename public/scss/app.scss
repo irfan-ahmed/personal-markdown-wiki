@@ -200,7 +200,7 @@ $secondaryButtonColor: blue;
     .topic-title {
       @extend .absPos;
       bottom: auto;
-      height: 34px;
+      height: 37px;
       overflow: hidden;
       z-index: 999;
       box-shadow: 0px 3px 3px $borderColor;
@@ -218,9 +218,10 @@ $secondaryButtonColor: blue;
       overflow: auto;
       
       .section {
-        margin: 0px 6px 15px 3px;
-        background: linear-gradient(#f0f0f0, #f9f9f9);
-
+        margin: 6px 12px 15px 8px;
+        border: 2px solid $borderColor;
+        border-radius: 0 0 7px 7px;
+        
         h3 {
           margin: 0;
           padding: 7px 8px;
@@ -243,7 +244,7 @@ $secondaryButtonColor: blue;
           padding: 5px 20px 5px 30px;
           border-radius: 0 0 7px 7px;
           margin: 1px;
-          background: linear-gradient(white, #EFEFEF);
+          background: #fff;
 
           pre {
             background: #fcf8e3;

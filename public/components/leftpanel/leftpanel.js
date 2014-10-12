@@ -72,7 +72,7 @@
 
             $scope.newTopic = function () {
                 var newTopicDialog = $modal.open({
-                    templateUrl: "components/topic/newTopic.html",
+                    templateUrl: "components/leftpanel/newTopic.html",
                     controller: "NewTopicDialogCtrl",
                     size: "sm"
                 });
