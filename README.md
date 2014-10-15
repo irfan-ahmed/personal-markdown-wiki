@@ -1,3 +1,4 @@
+[![Dependency Status](https://david-dm.org/irfan-ahmed/personal-markdown-wiki.png)](https://david-dm.org/irfan-ahmed/personal-markdown-wiki)
 [![devDependency Status](https://david-dm.org/irfan-ahmed/personal-markdown-wiki/dev-status.png)](https://david-dm.org/irfan-ahmed/personal-markdown-wiki#info=devDependencies)
 
 personal-markdown-wiki
