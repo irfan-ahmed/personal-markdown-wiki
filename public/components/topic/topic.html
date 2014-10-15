@@ -1,6 +1,9 @@
 <div class="page topic">
-  <div ng-hide="topic.current">
-    No Topic Selected
+  <div ng-hide="topic.current" style='margin:15px 30px;'>
+    <div class="alert alert-info">
+      There are no topics in this wiki. Click on 'New Topic' to create a topic of interest. Once the 
+      topic is created, you can click on 'New Section' to add sections to your topic.
+    </div>
   </div>
   <div ng-show="topic.current">
     <div class="topic-title">

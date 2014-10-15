@@ -39,8 +39,8 @@
     ]);
 
     module.controller("TopicCtrl", [
-        "$scope", "$location", "storeService", "$rootScope",
-        function ($scope, $location, store, $rootScope) {
+        "$scope", "$location", "storeService", "utilsService",
+        function ($scope, $location, store, utils) {
             $scope.topic = {
                 current: "",
                 label: "",
@@ -66,13 +66,7 @@
             ;
 
             function broadcastSections() {
-                $rootScope.$broadcast("topic.sections", {
-                    topic: $scope.topic.current,
-                    sections: $scope.topic.sections.map(function (s) {
-                        return {title: s.title,
-                            id: s.id};
-                    })
-                });
+                utils.updateSections($scope.topic.current, $scope.topic.sections);
             }
 
             function showTopic(topic) {
@@ -126,8 +120,7 @@
                              $scope.edit(section);
                              }, 200);*/
                         }).error(function (err) {
-                            //$scope.showAlert(err);
-                            console.error(err);
+                            utils.error("Error in creating the section", err);
                         });
                     }
                 }, function () {
@@ -137,7 +130,7 @@
 
             $scope.edit = function (section) {
                 store.isLoggedIn().then(function () {
-                    console.debug("Editiong section: ", section);
+                    console.debug("Editing section: ", section);
                     $scope.currentEditID = section.id;
                     var height = section.markdown.split("\n").length + 6;
                     if (height < 10) {
@@ -150,10 +143,7 @@
                     section.backup = section.markdown;
                     console.debug("Setting Section ID : ", section.id);
                 }, function () {
-                    $scope.showAlert({
-                        heading: "Edit not allowed.",
-                        message: "You are not logged in. All edits require authentication."
-                    });
+                    console.error("Not Logged In...");
                 });
             };
 
@@ -186,17 +176,18 @@
             };
 
             $scope.save = function (section) {
-                console.debug("saving section text : ", section.title);
                 var backup = section.backup;
                 delete section.backup;
                 delete section.html;
-                $scope.currentEditID = "";
                 store.saveSection($scope.topic.current.id, section).success(function () {
-                    //TODO show alert success
                     broadcastSections();
+                    utils.success("Section '" + section.title + "' saved successfully");
                 }).error(function (err) {
                     section.markdown = backup;
-                    console.error("Error saving: ", err);
+                    section.html = marked(backup);
+                    utils.error("Error in saving section '" + section.title + "'", err);
+                }).finally(function() {
+                    $scope.currentEditID = "";
                 });
             };
 
@@ -216,8 +207,10 @@
                     store.removeSection($scope.topic.current.id, section.id).success(function () {
                         $scope.topic.sections.splice(index, 1);
                         broadcastSections();
+                        utils.success("Section '" + section.title + "' removed successfully");
                     }).error(function (err) {
-                        console.error("Delete Section : ", section, err);
+                        utils.error("Error in deleting the section '" + section.title + "'",
+                            err);
                     });
                     $scope.currentEditID = "";
                 }

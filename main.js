@@ -82,7 +82,6 @@ app.get("/data/topic/:id", function(req, res) {
 app.post("/data/topic/:id", function(req, res) {
   var topicID = req.param("id");
   var section = req.body;
-  console.log("Saving Section : ", topicID, section);
   topics.save(topicID, section).then(function() {
     res.send({success: true});
   }, function(e) {
@@ -93,7 +92,6 @@ app.post("/data/topic/:id", function(req, res) {
 // delete a section from a topic
 app.post("/data/delete/section", function(req, res) {
     var params = req.body;
-    console.log("Trying to delete section: ", params);
     topics.deleteSection(params).then(function() {
         res.json({success:true, data: params});
     }, function(e) {

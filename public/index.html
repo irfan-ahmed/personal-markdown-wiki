@@ -27,6 +27,12 @@
       <div ng-include=" 'components/footer/footer.html' " ng-controller="FooterCtrl" class="footer">
         Copyright &copy; 2014, Irfan Ahmed. All Rights Reserved
       </div>
+      <div class="alertContainer ng-hide" ng-show="app.alert.text">
+        <div class="alert alert-{{app.alert.type}}">
+          {{app.alert.text}}
+          <div ng-show="app.alert.details"><small><code>{{app.alert.details}}</code></small></div>
+        </div>
+      </div>
     </div>
       
     <!-- In production use:
@@ -51,6 +57,7 @@
     <script src="components/settings/settings.js"></script>
     <script src="components/search/search.js"></script>
     <script src="components/topic/topic.js"></script>
+    <script src="components/services/utils.js"></script>
     <script src="components/services/store.js"></script>
   </body>
 </html>

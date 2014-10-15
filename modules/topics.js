@@ -34,7 +34,6 @@ module.exports.list = function (topicID) {
     console.log("Getting Sections for:", topicID, topics[topicID]);
     return when.promise(function (resolve, reject) {
         if (topics[topicID]) {
-            console.log("Topics already created...", topics[topicID].sections);
             resolve(topics[topicID].sections);
             return;
         }
@@ -44,7 +43,6 @@ module.exports.list = function (topicID) {
         var dir = getTopicDir(topicID);
         fs.readdir(dir, function (err, files) {
             if (err) {
-                console.log("sections.list", topicID, err);
                 if (err.code === "ENOENT") { // topicDir does not exist
                     fs.mkdir(dir, function (err) {
                         console.log("Error in making dir for topicID ", topicID, err);
@@ -55,7 +53,6 @@ module.exports.list = function (topicID) {
                     reject(err); //other error.. other then no exists
                 }
             } else { // no error. get the sections...
-                console.log("Got Files for topicID:", topicID, files);
                 var proms = files.map(function (file) { // start reading files
                     return when.promise(function (fRes, fRej) {
                         fs.readFile(path.join(dir, file), function (err, data) {
@@ -63,8 +60,6 @@ module.exports.list = function (topicID) {
                                 console.log("Error in reading file:", file, err);
                                 fRej(err);
                             } else {
-                                var timeStamp = file.substring(0, file.indexOf(ext));
-                                console.log("Section Created on : ", timeStamp);
                                 topics[topicID].sections.push(JSON.parse(data.toString()));
                                 fRes(file);
                             }
@@ -86,7 +81,6 @@ module.exports.list = function (topicID) {
 /** call to save/update a section to the topic dir **/
 exports.save = function (topicID, section) {
     return when.promise(function (resolve, reject) {
-        console.log("Writing sections:", topicID, section);
         if (!section) {
             console.log("Cannot create section with empty data...");
             reject("section object is empty");
@@ -108,7 +102,6 @@ exports.save = function (topicID, section) {
 exports.deleteSection = function (params) {
     return when.promise(function (resolve, reject) {
         var fileName = getFileName(params.topicID, params.sectionID);
-        console.log("sections.delete: ", params, fileName);
         fs.unlink(fileName, function (err) {
             if (err) {
                 console.log("sections.delete: ", fileName, err);
@@ -123,11 +116,9 @@ exports.deleteSection = function (params) {
 
 function getFileName(topicID, section) {
     var id = section;
-    console.log("getFileName: ", typeof section);
     if(typeof section === "object") {
         id = section.id;
     }
-    console.log("getFileName",topicID, id);
     return path.join(getTopicDir(topicID), id + ext);
 }
 

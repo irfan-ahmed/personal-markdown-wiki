@@ -28,13 +28,13 @@
     var module = angular.module("pmdApp.leftPanel", []);
 
     module.controller("LeftPanelCtrl", [
-        "$scope", "storeService", "$location", "$modal", "$timeout",
-        function ($scope, store, $location, $modal, $timeout) {
+        "$scope", "storeService", "$location", "$modal", "$timeout", "utilsService",
+        function ($scope, store, $location, $modal, $timeout, utils) {
             var panelNames = ["topics", "settings", "search"];
 
             $scope.leftPanel = {
                 topics: [],
-                currentPanel: "topics",
+                currentPanel: "topics"
             };
 
             $scope.$on("leftpanel.panel", function (event, name) {
@@ -81,8 +81,10 @@
                         $scope.leftPanel.topics.push(topicInfo);
                         $scope.leftPanel.currentTopic = topicInfo;
                         $location.search(topicInfo);
+                        utils.success("Successfully created topic " + topicInfo.label, 
+                            "Start adding sections by clicking 'New Section'");
                     }, function (e) {
-                        console.error("Create Topic: ", e);
+                        utils.error("Error in creating topic " + topicInfo.label, e);
                     });
                 }, function () {
                     console.debug("Dialog Cancelled/closed...");

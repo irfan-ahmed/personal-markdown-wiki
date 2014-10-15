@@ -30,7 +30,8 @@
         'ngRoute', "ui.bootstrap", "ngAnimate", "ngSanitize",
         'pmdApp.topic', "pmdApp.search",
         'pmdApp.header', 'pmdApp.footer', "pmdApp.leftPanel",
-        "pmdApp.settings", "pmdApp.services"
+        "pmdApp.settings", 
+        "pmdApp.storeService", "pmdApp.utilsService"
     ]);
 
     module.config([
@@ -41,11 +42,18 @@
     ]);
 
     module.controller("PMDAppCtrl", [
-        "$scope", "$location", "$rootScope", 
-        function ($scope, $location, $rootScope) {
-            console.debug("Main Controller Loaded");
+        "$scope", "$location", "$rootScope", "$timeout",
+        function ($scope, $location, $rootScope, $timeout) {
+            var MAX_TIMEOUT = 1000*5; // 5secs
+            var MAX_ERROR_TIMEOUT = 2*MAX_TIMEOUT;
+            
             $scope.app = {
-                left: ""
+                left: "",
+                alert: {
+                    type: "success",
+                    text: "",
+                    details: ""
+                }
             };
 
             $scope.onViewLoaded = function () {
@@ -62,6 +70,14 @@
                         break;
                 }
             };
+            
+            $scope.$on("alert", function(event, alertData) {
+                console.debug("Alert: ", alertData);
+                $scope.app.alert = alertData;
+                $timeout(function() {
+                    $scope.app.alert.text = $scope.app.alert.details = "";
+                }, (alertData.type==="error"?MAX_ERROR_TIMEOUT:MAX_TIMEOUT));
+            });
         }
     ]);
     

@@ -27,7 +27,7 @@ body {
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer; }
 
-.absPos, .appContainer, .header, .leftPanel, .contents, .contents .page.topic .topic-title, .contents .page.topic .sectionContainer, .footer {
+.absPos, .appContainer, .appContainer .alertContainer, .header, .leftPanel, .contents, .contents .page.topic .topic-title, .contents .page.topic .sectionContainer, .footer {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -37,6 +37,13 @@ body {
 .appContainer {
   padding: 0;
   overflow: hidden; }
+  .appContainer .alertContainer {
+    text-align: center;
+    bottom: auto; }
+    .appContainer .alertContainer .alert {
+      display: inline-block;
+      border-radius: 0 0 4px 4px;
+      margin: 0; }
 
 .toolbar {
   text-align: right;
@@ -151,9 +158,9 @@ body {
       border-radius: 0 0 7px 7px; }
       .contents .page.topic .sectionContainer .section h3 {
         margin: 0;
-        padding: 7px 8px;
+        padding: 4px 8px;
         border-bottom: 1px dotted #dddddd;
-        background: linear-gradient(#e0e0e0, #fefefe); }
+        background: #ededed; }
       .contents .page.topic .sectionContainer .section h4, .contents .page.topic .sectionContainer .section h5, .contents .page.topic .sectionContainer .section h6 {
         margin-top: 5px;
         margin-bottom: 4px; }
@@ -167,7 +174,6 @@ body {
         margin: 1px;
         background: #fff; }
         .contents .page.topic .sectionContainer .section .sectionHtml pre {
-          background: #fcf8e3;
           margin-right: 40px; }
       .contents .page.topic .sectionContainer .section .sectionEdit {
         padding: 5px; }

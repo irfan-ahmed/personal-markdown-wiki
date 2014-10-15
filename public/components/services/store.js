@@ -25,7 +25,7 @@
 "use strict";
 
 (function () {
-    var module = angular.module("pmdApp.services", []);
+    var module = angular.module("pmdApp.storeService", []);
 
     module.factory("storeService", [
         "$http", "$q", 

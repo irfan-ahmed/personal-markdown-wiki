@@ -52,6 +52,18 @@ $secondaryButtonColor: blue;
   @extend .absPos;
   padding: 0;
   overflow: hidden;
+  
+  .alertContainer {
+      @extend .absPos;
+      text-align: center;
+      bottom: auto;
+      
+      .alert {
+          display: inline-block;
+          border-radius: 0 0 4px 4px;
+          margin: 0;
+      }
+  }
 }
 
 .toolbar {
@@ -224,9 +236,9 @@ $secondaryButtonColor: blue;
         
         h3 {
           margin: 0;
-          padding: 7px 8px;
+          padding: 4px 8px;
           border-bottom: 1px dotted $borderColor;
-          background: linear-gradient(#E0E0E0, #fefefe);
+          background: #ededed;
         }
 
         h4, h5, h6 {
@@ -247,7 +259,6 @@ $secondaryButtonColor: blue;
           background: #fff;
 
           pre {
-            background: #fcf8e3;
             margin-right: 40px;
           }
         }
