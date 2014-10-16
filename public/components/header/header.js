@@ -25,20 +25,20 @@
 'use strict';
 
 (function () {
-    var module = angular.module('pmdApp.header', ['ngRoute']);
+  var module = angular.module('pmdApp.header', ['ngRoute']);
 
-    module.controller('HeaderCtrl', [
-        "$scope", "$rootScope", "$location", 
-        function ($scope, $rootScope, $location) {
-            $scope.header = {
-                searchText: ""
-            };
+  module.controller('HeaderCtrl', [
+    "$scope", "$rootScope", "$location",
+    function ($scope, $rootScope, $location) {
+      $scope.header = {
+        searchText: ""
+      };
 
-            $scope.search = function () {
-                console.debug("Searching for: ", $scope.header.searchText);
-                $rootScope.$broadcast("leftpanel.panel", "search");
-                $location.url("/search?" + encodeURI("search=" + $scope.header.searchText));
-            };
-        }
-    ]);
+      $scope.search = function () {
+        console.debug("Searching for: ", $scope.header.searchText);
+        $rootScope.$broadcast("leftpanel.panel", "search");
+        $location.url("/search?" + encodeURI("search=" + $scope.header.searchText));
+      };
+    }
+  ]);
 })();

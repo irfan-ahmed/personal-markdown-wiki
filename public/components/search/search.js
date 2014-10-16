@@ -25,20 +25,20 @@
 
 "use strict";
 
-(function() {
+(function () {
   var module = angular.module("pmdApp.search", ["ngRoute"]);
-  
-  module.config(["$routeProvider", function($routeProvider){
-    $routeProvider.when("/search", {
-      templateUrl: "components/search/search.html",
-      controller: "SearchCtrl"
-    });
-  }]);
 
-  module.controller("SearchCtrl", ["$scope", "$location", function($scope, $location) {
+  module.config(["$routeProvider", function ($routeProvider) {
+      $routeProvider.when("/search", {
+        templateUrl: "components/search/search.html",
+        controller: "SearchCtrl"
+      });
+    }]);
+
+  module.controller("SearchCtrl", ["$scope", "$location", function ($scope, $location) {
       console.debug("Search Controller Inited", $location.search());
       $scope.search = {
         text: $location.search().search
       };
-  }]);
+    }]);
 })();

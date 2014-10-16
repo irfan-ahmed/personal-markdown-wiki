@@ -31,7 +31,7 @@ var ext = ".json";
 var topics = {};
 
 module.exports.list = function (topicID) {
-    console.log("Getting Sections for:", topicID, topics[topicID]);
+    console.log("Getting Sections for:", topicID);
     return when.promise(function (resolve, reject) {
         if (topics[topicID]) {
             resolve(topics[topicID].sections);

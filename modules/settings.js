@@ -35,8 +35,6 @@ var config = {
 config.settingsFile = path.join(config.dataDir, "settings.json");
 config.topicsDir = path.join(config.dataDir, "topics");
 
-console.log("Data Dir Config: ", config);
-
 // lets create the config.settingsFile and config.dataDir if they do not exist...
 fs.mkdir(config.dataDir, function(err) {
   if(err && err.code !== "EEXIST") {
@@ -97,7 +95,6 @@ module.exports.get = function() {
           }
         } else {
           settings = JSON.parse(data);
-          console.log("Read Settings: ", settings);
           resolve(settings);
         }
       });
@@ -111,7 +108,6 @@ module.exports.set = function(data) {
     return null;
   }
   settings = data;
-  console.log("Saving Settings :", data);
   return saveSettings();
 };
 

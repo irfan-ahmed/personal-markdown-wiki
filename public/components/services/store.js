@@ -25,43 +25,41 @@
 "use strict";
 
 (function () {
-    var module = angular.module("pmdApp.storeService", []);
+  var module = angular.module("pmdApp.storeService", []);
 
-    module.factory("storeService", [
-        "$http", "$q", 
-        function ($http, $q) {
-            return {
-                getSettings: function () {
-                    return $http.get("/data/settings");
-                },
-                setSettings: function (settings) {
-                    console.debug("Saving Settings: ", settings);
-                    return $http.post("/data/settings", settings);
-                },
-                getTopicData: function (id) {
-                    return $http.get("/data/topic/" + id);
-                },
-                saveSection: function (topicID, section) {
-                    return $http.post("/data/topic/" + topicID, section);
-                },
-                
-                removeSection: function(topicID, sectionID) {
-                    return $http.post("/data/delete/section", {
-                        topicID: topicID, sectionID: sectionID
-                    });
-                },
-                
-                createTopic: function (topicInfo) {
-                    return $http.post("/data/create/topic", topicInfo);
-                },
-                isLoggedIn: function () {
-                    var deferred = $q.defer();
-                    deferred.resolve(true);
-                    return deferred.promise;
-                }
-            };
+  module.factory("storeService", [
+    "$http", "$q",
+    function ($http, $q) {
+      return {
+        getSettings: function () {
+          return $http.get("/data/settings");
+        },
+        setSettings: function (settings) {
+          console.debug("Saving Settings: ", settings);
+          return $http.post("/data/settings", settings);
+        },
+        getTopicData: function (id) {
+          return $http.get("/data/topic/" + id);
+        },
+        saveSection: function (topicID, section) {
+          return $http.post("/data/topic/" + topicID, section);
+        },
+        removeSection: function (topicID, sectionID) {
+          return $http.post("/data/delete/section", {
+            topicID: topicID, sectionID: sectionID
+          });
+        },
+        createTopic: function (topicInfo) {
+          return $http.post("/data/create/topic", topicInfo);
+        },
+        isLoggedIn: function () {
+          var deferred = $q.defer();
+          deferred.resolve(true);
+          return deferred.promise;
         }
-    ]);
+      };
+    }
+  ]);
 })();
 
 

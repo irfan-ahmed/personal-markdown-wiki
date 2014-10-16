@@ -24,74 +24,69 @@
 
 "use strict";
 
-(function() {
-    var module = angular.module("pmdApp.utilsService", []);
-    
-    module.factory("utilsService", [
-        "$rootScope", 
-        function($rootScope) {
-            return {
-                alert: function(data) {
-                    if(!data) {
-                        return;
-                    }
-                    if(typeof data === "string") {
-                        data = {
-                            text: data
-                        };
-                    }
-                    if(!data.type) {
-                        data.type = "success";
-                    }
-                    $rootScope.$broadcast("alert", data);
-                },
-                
-                error: function(text, err) {
-                    this.alert({
-                        text: text,
-                        type: "danger",
-                        details: err
-                    });
-                },
-                
-                success: function(text, details) {
-                    this.alert({
-                        type: "success", 
-                        text: text, 
-                        details: details
-                    });
-                },
-                
-                warn: function(text, details) {
-                    this.alert({
-                        type: "warning", 
-                        text: text, 
-                        details: details
-                    });
-                },
-                
-                info: function(text, details) {
-                    this.alert({
-                        type: "info", 
-                        text: text, 
-                        details: details
-                    });
-                },
-                
-                updateSections: function(topic, sections) {
-                    $rootScope.$broadcast("topic.sections", {
-                        topic: topic,
-                        sections: sections.map(function (s) {
-                            return {
-                                title: s.title,
-                                id: s.id
-                            };
-                        })
-                    });
-                }
+(function () {
+  var module = angular.module("pmdApp.utilsService", []);
+
+  module.factory("utilsService", [
+    "$rootScope",
+    function ($rootScope) {
+      return {
+        alert: function (data) {
+          if (!data) {
+            return;
+          }
+          if (typeof data === "string") {
+            data = {
+              text: data
             };
+          }
+          if (!data.type) {
+            data.type = "success";
+          }
+          $rootScope.$broadcast("alert", data);
+        },
+        error: function (text, err) {
+          this.alert({
+            text: text,
+            type: "danger",
+            details: err
+          });
+        },
+        success: function (text, details) {
+          this.alert({
+            type: "success",
+            text: text,
+            details: details
+          });
+        },
+        warn: function (text, details) {
+          this.alert({
+            type: "warning",
+            text: text,
+            details: details
+          });
+        },
+        info: function (text, details) {
+          this.alert({
+            type: "info",
+            text: text,
+            details: details
+          });
+        },
+        updateSections: function (topic, sections) {
+          $rootScope.$broadcast("topic.sections", {
+            topic: topic,
+            sections: sections.map(function (s) {
+              return {
+                title: s.title,
+                id: s.id
+              };
+            })
+          });
         }
-    ]);
+      };
+    }
+  ]);
 })();
 
 

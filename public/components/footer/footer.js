@@ -23,12 +23,12 @@
  */
 
 'use strict';
-(function() {
-    var module = angular.module('pmdApp.footer', ['ngRoute']);
+(function () {
+  var module = angular.module('pmdApp.footer', ['ngRoute']);
 
-    module.controller('FooterCtrl', [
-        function() {
-            console.debug("Footer....");
-        }
-    ]);
+  module.controller('FooterCtrl', [
+    function () {
+      console.debug("Footer....");
+    }
+  ]);
 })();
