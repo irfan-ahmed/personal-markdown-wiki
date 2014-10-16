@@ -1,16 +1,20 @@
 <div class="header text-default">
   <div class="toolbar">
-    <button ng-click="save(section)" title="Save" class="btn btn-info btn-xs"
-            ng-show="currentEditID === section.id">Save</button>
-    <button ng-click="cancel(section)" title="Cancel" class="btn btn-warning btn-xs"
+    <button ng-click="save(section)" title="Save this section" class="btn btn-primary btn-xs"
+            ng-show="currentEditID === section.id">
+      <span class="glyphicon glyphicon-save"></span>
+    </button>
+    <button ng-click="cancel(section)" title="Cancel the changes" class="btn btn-warning btn-xs"
             ng-show="currentEditID === section.id">Cancel</button>
     <button ng-click="edit(section, $event)" title="Click to edit the section entry." 
-            class="btn btn-info btn-xs" ng-hide="currentEditID === section.id">Edit</button>
-    <button ng-click="remove(section, $index)" title="Delete" ng-hide="currentEditID === section.id"
-            class="btn btn-warning btn-xs">Delete</button>
+            class="btn btn-primary btn-xs" ng-hide="currentEditID === section.id">Edit</button>
+    <button ng-click="remove(section, $index)" ng-hide="currentEditID === section.id"
+            class="btn btn-danger btn-xs" title="Click to delete this section.">
+      <span class="glyphicon glyphicon-remove"></span>
+    </button>
   </div>
 
-  <h4 id="{{section.id}}">{{section.title}}</h4>
+  <h3 class="text-primary" id="{{section.id}}">{{section.title}}</h3>
 </div>
 
 <div ng-bind-html="getHtml(section)" ng-hide="currentEditID === section.id"
@@ -18,8 +22,8 @@
 
      <div ng-show="showEdit(section.id)" id="editsection_{{section.id}}"
      class="sectionEdit">
-  <div class="form-group">
-    <input type="text" ng-model="section.title" class="form-control"/>
+       <div class="form-group" style="margin-bottom: 6px;">
+         <input type="text" ng-model="section.title" class="form-control"/>
   </div>
   <div class="form-group" style="position:relative;">
     <div class="help pull-right container" ng-include=" 'components/topic/sectionhelp.html' "></div>
@@ -27,6 +31,8 @@
       <textarea class="mono form-control" style="height:{{currentEditHeight}}em" 
                 ng-model="section.markdown" ng-allow-tab="2"
                 id="textarea_{{section.id}}"></textarea>
+      <div class="help-block text-primary">Enter markdown text into this textarea and click 
+        'Save' to save the section and convert the same into HTML.</div>
     </div>
   </div>
 </div>            

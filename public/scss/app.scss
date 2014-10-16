@@ -22,6 +22,58 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
+$topHeight: 50px;
+$bottomHeight: 25px;
+$leftPanelWidth: 250px;
+$borderColor: #ddd;
+$shadowColor: #aaa;
+$border: 2px solid $borderColor;
+
+$h2Color: brown;
+$helpColor: #999;
+$secondaryButtonColor: blue;
+$topicHeadingColor: #cd6b6a;
+$topicBorderColor: #c9c9c9;
+
+body {
+  font-size: 12px;
+  line-height: 1.42857143;
+  color: #333333;
+
+  h1,
+  .h1 {
+    font-size: 31px;
+  }
+  h2,
+  .h2 {
+    font-size: 25px;
+  }
+  h3,
+  .h3 {
+    font-size: 21px;
+  }
+  h4,
+  .h4 {
+    font-size: 15px;
+  }
+  h5,
+  .h5 {
+    font-size: 14px;
+  }
+  h6,
+  .h6 {
+    font-size: 11px;
+  }
+
+  .btn-sm {
+    padding: 3px 10px;
+  }
+
+  .panel-heading {
+    padding: 6px 12px;
+  }
+}
+
 .nav, .pagination, .carousel, .panel-title a { 
   cursor: pointer; 
 }
@@ -33,17 +85,6 @@ THE SOFTWARE.
   left: 0;
   right: 0;
 }
-
-$topHeight: 50px;
-$bottomHeight: 25px;
-$leftPanelWidth: 250px;
-$borderColor: #ddd;
-$shadowColor: #aaa;
-$border: 2px solid $borderColor;
-
-$h2Color: brown;
-$helpColor: #999;
-$secondaryButtonColor: blue;
 
 .appContainer {
   @extend .absPos;
@@ -84,7 +125,7 @@ $secondaryButtonColor: blue;
   height: $topHeight;
   border-bottom: $border;
   line-height: $topHeight;
-  
+
   h1, h2 {
     margin: 3px 0;
     padding: 0;
@@ -137,6 +178,7 @@ $secondaryButtonColor: blue;
   overflow: auto;
   width: $leftPanelWidth;
   padding: 5px;
+  background: linear-gradient(#FFFFFF, #eee, #FBEDE3);
 
   .toolbar {
     padding-bottom: 5px;
@@ -147,6 +189,10 @@ $secondaryButtonColor: blue;
     .heading {
       text-transform: capitalize;
     }
+  }
+
+  a {
+    text-transform: capitalize;
   }
 }
 
@@ -174,11 +220,6 @@ $secondaryButtonColor: blue;
   left: $leftPanelWidth;
 
   .page {
-
-    h2 {
-      margin: 0;
-      padding: 3px;
-    }
   }
 
   .page.search {
@@ -217,9 +258,21 @@ $secondaryButtonColor: blue;
       height: 37px;
       overflow: hidden;
       z-index: 999;
-      box-shadow: 0px 3px 3px $borderColor;
       padding: 0 5px;
       text-transform: capitalize;
+      border-bottom: 2px solid $topicHeadingColor;
+      margin: 0 0 0 4px;
+      background: linear-gradient(#fff,rgba(242, 194, 192, 0.23));
+
+      h2 {
+        margin: 0;
+        padding: 3px;
+        color: $topicHeadingColor;
+
+        small {
+          font-size: 12px;
+        }
+      }
 
       pre {
         margin-right: 40px;
@@ -234,22 +287,27 @@ $secondaryButtonColor: blue;
 
     .sectionContainer {
       @extend .absPos;
-      top: 42px;
+      top: 38px;
       overflow: auto;
 
       .section {
-        margin: 12px 20px 20px 12px;
-        border: 2px solid $borderColor;
-        border-radius: 7px;
-        box-shadow: 4px 4px 8px $shadowColor;
+        margin: 12px 20px 10px 12px;
 
         .header {
           position: static;
           height: auto;
           overflow: hidden;
+          border-bottom: 3px solid $topicBorderColor;
 
-          h4 {
+          h4, h3 {
             padding-left: 8px;
+            text-transform: capitalize;
+            font-size: 18px;
+            margin-bottom: 2px;
+          }
+
+          .toolbar {
+            padding: 0 8px;
           }
         }
 
@@ -266,9 +324,9 @@ $secondaryButtonColor: blue;
 
         .sectionHtml {
           padding: 5px 20px 5px 30px;
-          border-radius: 0 0 7px 7px;
           min-height: 50px;
-          background: #f5f5f5;
+          border-bottom: 1px solid #c9c9c9;
+          background: linear-gradient(rgba(251, 251, 251, 0.27), rgba(242, 242, 242, 0.79));
 
           p {
             color: #666;
@@ -276,13 +334,16 @@ $secondaryButtonColor: blue;
 
           pre {
             margin-right: 40px;
+            font-size: 95%;
             background: #fff;
           }
         }
 
         .sectionEdit {
-          padding: 5px;
+          padding: 5px 10px;
           overflow: hidden;
+          background: linear-gradient(#fff, rgba(66, 139, 202, 0.19));
+          border-radius: 0 0 7px 7px;
 
           .editContainer {
             margin-right: 190px;
@@ -291,9 +352,9 @@ $secondaryButtonColor: blue;
               font-size: 11px;
               line-height: normal;
               margin-right: 200px;
-              margin-left: 10px;
-              background: #f9f9f9;
+              background: #fff;
               color: #444;
+              min-height: 190px;
             }
           }
 

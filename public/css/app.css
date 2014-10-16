@@ -21,6 +21,33 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+body {
+  font-size: 12px;
+  line-height: 1.42857143;
+  color: #333333; }
+  body h1,
+  body .h1 {
+    font-size: 31px; }
+  body h2,
+  body .h2 {
+    font-size: 25px; }
+  body h3,
+  body .h3 {
+    font-size: 21px; }
+  body h4,
+  body .h4 {
+    font-size: 15px; }
+  body h5,
+  body .h5 {
+    font-size: 14px; }
+  body h6,
+  body .h6 {
+    font-size: 11px; }
+  body .btn-sm {
+    padding: 3px 10px; }
+  body .panel-heading {
+    padding: 6px 12px; }
+
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer; }
 
@@ -97,11 +124,14 @@ THE SOFTWARE.
   border-right: 2px solid #dddddd;
   overflow: auto;
   width: 250px;
-  padding: 5px; }
+  padding: 5px;
+  background: linear-gradient(white, #eeeeee, #fbede3); }
   .leftPanel .toolbar {
     padding-bottom: 5px;
     float: none; }
   .leftPanel .accordion-toggle .heading {
+    text-transform: capitalize; }
+  .leftPanel a {
     text-transform: capitalize; }
 
 .animate-linear, .animate-left-panel-hide {
@@ -119,9 +149,6 @@ THE SOFTWARE.
   bottom: 25px;
   overflow: auto;
   left: 250px; }
-  .contents .page h2 {
-    margin: 0;
-    padding: 3px; }
   .contents .page.search .searchSection {
     text-align: center;
     line-height: 20px;
@@ -145,9 +172,17 @@ THE SOFTWARE.
     height: 37px;
     overflow: hidden;
     z-index: 999;
-    box-shadow: 0px 3px 3px #dddddd;
     padding: 0 5px;
-    text-transform: capitalize; }
+    text-transform: capitalize;
+    border-bottom: 2px solid #cd6b6a;
+    margin: 0 0 0 4px;
+    background: linear-gradient(white, rgba(242, 194, 192, 0.23)); }
+    .contents .page.topic .topic-title h2 {
+      margin: 0;
+      padding: 3px;
+      color: #cd6b6a; }
+      .contents .page.topic .topic-title h2 small {
+        font-size: 12px; }
     .contents .page.topic .topic-title pre {
       margin-right: 40px; }
     .contents .page.topic .topic-title .toolbar {
@@ -155,19 +190,22 @@ THE SOFTWARE.
       padding: 5px;
       padding-top: 7px; }
   .contents .page.topic .sectionContainer {
-    top: 42px;
+    top: 38px;
     overflow: auto; }
     .contents .page.topic .sectionContainer .section {
-      margin: 12px 20px 20px 12px;
-      border: 2px solid #dddddd;
-      border-radius: 7px;
-      box-shadow: 4px 4px 8px #aaaaaa; }
+      margin: 12px 20px 10px 12px; }
       .contents .page.topic .sectionContainer .section .header {
         position: static;
         height: auto;
-        overflow: hidden; }
-        .contents .page.topic .sectionContainer .section .header h4 {
-          padding-left: 8px; }
+        overflow: hidden;
+        border-bottom: 3px solid #c9c9c9; }
+        .contents .page.topic .sectionContainer .section .header h4, .contents .page.topic .sectionContainer .section .header h3 {
+          padding-left: 8px;
+          text-transform: capitalize;
+          font-size: 18px;
+          margin-bottom: 2px; }
+        .contents .page.topic .sectionContainer .section .header .toolbar {
+          padding: 0 8px; }
       .contents .page.topic .sectionContainer .section h3, .contents .page.topic .sectionContainer .section h4, .contents .page.topic .sectionContainer .section h5, .contents .page.topic .sectionContainer .section h6 {
         margin-top: 5px;
         margin-bottom: 4px; }
@@ -177,26 +215,29 @@ THE SOFTWARE.
         padding-right: 5px; }
       .contents .page.topic .sectionContainer .section .sectionHtml {
         padding: 5px 20px 5px 30px;
-        border-radius: 0 0 7px 7px;
         min-height: 50px;
-        background: #f5f5f5; }
+        border-bottom: 1px solid #c9c9c9;
+        background: linear-gradient(rgba(251, 251, 251, 0.27), rgba(242, 242, 242, 0.79)); }
         .contents .page.topic .sectionContainer .section .sectionHtml p {
           color: #666; }
         .contents .page.topic .sectionContainer .section .sectionHtml pre {
           margin-right: 40px;
+          font-size: 95%;
           background: #fff; }
       .contents .page.topic .sectionContainer .section .sectionEdit {
-        padding: 5px;
-        overflow: hidden; }
+        padding: 5px 10px;
+        overflow: hidden;
+        background: linear-gradient(white, rgba(66, 139, 202, 0.19));
+        border-radius: 0 0 7px 7px; }
         .contents .page.topic .sectionContainer .section .sectionEdit .editContainer {
           margin-right: 190px; }
           .contents .page.topic .sectionContainer .section .sectionEdit .editContainer textarea {
             font-size: 11px;
             line-height: normal;
             margin-right: 200px;
-            margin-left: 10px;
-            background: #f9f9f9;
-            color: #444; }
+            background: #fff;
+            color: #444;
+            min-height: 190px; }
         .contents .page.topic .sectionContainer .section .sectionEdit .help {
           width: 175px; }
           .contents .page.topic .sectionContainer .section .sectionEdit .help .table td {

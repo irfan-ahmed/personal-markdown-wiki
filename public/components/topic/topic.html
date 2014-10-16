@@ -8,10 +8,12 @@
   <div ng-show="topic.current">
     <div class="topic-title">
       <div class="toolbar">
-        <button type="button" class="btn btn-primary btn-xs" ng-click="newSection($event)">New Section</button>
+        <button type="button" class="btn btn-warning btn-xs" ng-click="newSection($event)">
+          <span class="">New Section</span>
+        </button>
       </div>
-      <h2  class="text-primary">{{topic.current.label}}
-        <small>{{topic.current.desc}}</small>
+      <h2>{{topic.current.label}}
+        <small class="text-muted">{{topic.current.desc}}</small>
       </h2>
     </div>
     <div class="sectionContainer">
