@@ -46,8 +46,23 @@
                 label: "",
                 sections: []
             };
+            
+            // #16 table renderer for Bootstrap
+            var renderer = new marked.Renderer();
+            renderer.table = function(header, body) {
+                return '<table class=\'table table-hover table-condensed\'>\n'
+                    + '<thead>\n'
+                    + header
+                    + '</thead>\n'
+                    + '<tbody>\n'
+                    + body
+                    + '</tbody>\n'
+                    + '</table>\n';
+            };
+            
             if ((typeof hljs) !== "undefined") {
                 marked.setOptions({
+                    renderer: renderer,
                     highlight: function (code, lang) {
                         return hljs.highlightAuto(code, [lang]).value;
                     }
