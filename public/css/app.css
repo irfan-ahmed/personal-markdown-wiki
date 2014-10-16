@@ -178,14 +178,15 @@ body {
         .contents .page.topic .sectionContainer .section .sectionHtml pre {
           margin-right: 40px; }
       .contents .page.topic .sectionContainer .section .sectionEdit {
-        padding: 5px; }
+        padding: 5px;
+        overflow: hidden; }
         .contents .page.topic .sectionContainer .section .sectionEdit .editContainer {
-          margin-right: 190px;
-          background: pink; }
+          margin-right: 190px; }
           .contents .page.topic .sectionContainer .section .sectionEdit .editContainer textarea {
             font-size: 11px;
             line-height: normal;
-            margin-right: 200px; }
+            margin-right: 200px;
+            margin-left: 10px; }
         .contents .page.topic .sectionContainer .section .sectionEdit .help {
           width: 175px; }
           .contents .page.topic .sectionContainer .section .sectionEdit .help .table td {

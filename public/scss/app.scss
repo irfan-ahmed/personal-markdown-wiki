@@ -264,15 +264,16 @@ $secondaryButtonColor: blue;
 
         .sectionEdit {
           padding: 5px;
+          overflow: hidden;
 
           .editContainer {
             margin-right: 190px;
-            background: pink;
 
             textarea {
               font-size: 11px;
               line-height: normal;
               margin-right: 200px;
+              margin-left: 10px;
             }
           }
 
