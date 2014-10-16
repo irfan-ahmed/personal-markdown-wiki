@@ -3,7 +3,7 @@
           ng-show="currentEditID===section.id">Save</button>
   <button ng-click="cancel(section)" title="Cancel" class="btn btn-warning btn-xs"
           ng-show="currentEditID===section.id">Cancel</button>
-  <button ng-click="edit(section)" title="Click to edit the section entry." 
+  <button ng-click="edit(section, $event)" title="Click to edit the section entry." 
           class="btn btn-info btn-xs" ng-hide="currentEditID===section.id">Edit</button>
   <button ng-click="remove(section, $index)" title="Delete" ng-hide="currentEditID===section.id"
           class="btn btn-warning btn-xs">Delete</button>
@@ -20,8 +20,8 @@
     <div class="help pull-right container" ng-include=" 'components/topic/sectionhelp.html' "></div>
     <div class="editContainer">
       <textarea class="mono form-control" style="height:{{currentEditHeight}}em" 
-                ng-model="section.markdown"
-                ng-allow-tab="2"></textarea>
+                ng-model="section.markdown" ng-allow-tab="2"
+                id="textarea_{{section.id}}"></textarea>
     </div>
   </div>
 </div>            

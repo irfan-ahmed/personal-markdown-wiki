@@ -215,6 +215,11 @@ $secondaryButtonColor: blue;
       overflow: hidden;
       z-index: 999;
       box-shadow: 0px 3px 3px $borderColor;
+      padding: 0 5px;
+
+      pre {
+        margin-right: 40px;
+      }
 
       .toolbar {
         right: 15px;
@@ -274,6 +279,8 @@ $secondaryButtonColor: blue;
               line-height: normal;
               margin-right: 200px;
               margin-left: 10px;
+              background: #f9f9f9;
+              color: #444;
             }
           }
 

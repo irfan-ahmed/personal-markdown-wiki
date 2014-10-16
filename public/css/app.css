@@ -146,7 +146,10 @@ body {
     height: 37px;
     overflow: hidden;
     z-index: 999;
-    box-shadow: 0px 3px 3px #dddddd; }
+    box-shadow: 0px 3px 3px #dddddd;
+    padding: 0 5px; }
+    .contents .page.topic .topic-title pre {
+      margin-right: 40px; }
     .contents .page.topic .topic-title .toolbar {
       right: 15px;
       padding: 5px;
@@ -186,7 +189,9 @@ body {
             font-size: 11px;
             line-height: normal;
             margin-right: 200px;
-            margin-left: 10px; }
+            margin-left: 10px;
+            background: #f9f9f9;
+            color: #444; }
         .contents .page.topic .sectionContainer .section .sectionEdit .help {
           width: 175px; }
           .contents .page.topic .sectionContainer .section .sectionEdit .help .table td {
