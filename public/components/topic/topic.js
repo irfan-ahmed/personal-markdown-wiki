@@ -65,7 +65,9 @@
                     renderer: renderer,
                     highlight: function (code, lang) {
                         return hljs.highlightAuto(code, [lang]).value;
-                    }
+                    },
+                    gfm: true,
+                    breaks: true
                 });
             }
 
@@ -78,7 +80,6 @@
                     markdown: ""
                 };
             }
-            ;
 
             function broadcastSections() {
                 utils.updateSections($scope.topic.current, $scope.topic.sections);
