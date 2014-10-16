@@ -8,13 +8,14 @@
                      is-open="topic.open">
       <accordion-heading>
         <span ng-click="onTopic(topic, $index)">{{topic.label}}</span>
+        <span class="badge pull-right">{{topic.sections.length}}</span>
       </accordion-heading>
       <!-- the sections -->
       <ol style="padding-left:20px;">
         <li ng-repeat="section in topic.sections track by $index">
-          <button class="btn btn-link btn-xs" ng-click="showSection(section.id, $index)">
-              {{section.title}}
-          </button>
+          <a class="text-primary" href="#" ng-click="showSection($event, section.id, $index)">
+            <small>{{section.title}}</small>
+          </a>
         </li>
       </ol>
       

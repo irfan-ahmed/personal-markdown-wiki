@@ -91,7 +91,8 @@
         });
       };
 
-      $scope.showSection = function (id) {
+      $scope.showSection = function (e, id, index) {
+        e.preventDefault();
         console.debug("Showing Section : ", id);
         $location.hash(id);
       };
