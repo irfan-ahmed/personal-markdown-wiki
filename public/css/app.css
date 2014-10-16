@@ -21,9 +21,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
-body {
-  color: #444; }
-
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer; }
 
@@ -161,16 +158,17 @@ body {
     top: 42px;
     overflow: auto; }
     .contents .page.topic .sectionContainer .section {
-      margin: 6px 12px 15px 8px;
+      margin: 12px 20px 20px 12px;
       border: 2px solid #dddddd;
-      border-radius: 0 0 7px 7px; }
-      .contents .page.topic .sectionContainer .section h3 {
-        margin: 0;
-        padding: 4px 8px;
-        border-bottom: 1px dotted #dddddd;
-        background: #ededed;
-        text-transform: capitalize; }
-      .contents .page.topic .sectionContainer .section h4, .contents .page.topic .sectionContainer .section h5, .contents .page.topic .sectionContainer .section h6 {
+      border-radius: 7px;
+      box-shadow: 4px 4px 8px #aaaaaa; }
+      .contents .page.topic .sectionContainer .section .header {
+        position: static;
+        height: auto;
+        overflow: hidden; }
+        .contents .page.topic .sectionContainer .section .header h4 {
+          padding-left: 8px; }
+      .contents .page.topic .sectionContainer .section h3, .contents .page.topic .sectionContainer .section h4, .contents .page.topic .sectionContainer .section h5, .contents .page.topic .sectionContainer .section h6 {
         margin-top: 5px;
         margin-bottom: 4px; }
       .contents .page.topic .sectionContainer .section .toolbar {
@@ -180,10 +178,13 @@ body {
       .contents .page.topic .sectionContainer .section .sectionHtml {
         padding: 5px 20px 5px 30px;
         border-radius: 0 0 7px 7px;
-        margin: 1px;
-        background: #fff; }
+        min-height: 50px;
+        background: #f5f5f5; }
+        .contents .page.topic .sectionContainer .section .sectionHtml p {
+          color: #666; }
         .contents .page.topic .sectionContainer .section .sectionHtml pre {
-          margin-right: 40px; }
+          margin-right: 40px;
+          background: #fff; }
       .contents .page.topic .sectionContainer .section .sectionEdit {
         padding: 5px;
         overflow: hidden; }
