@@ -23,19 +23,19 @@ THE SOFTWARE.
 */
 
 body {
-  color: #444;
+    color: #444;
 }
 
 .nav, .pagination, .carousel, .panel-title a { 
-  cursor: pointer; 
+    cursor: pointer; 
 }
 
 .absPos {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 $topHeight: 50px;
@@ -49,250 +49,249 @@ $helpColor: #999;
 $secondaryButtonColor: blue;
 
 .appContainer {
-  @extend .absPos;
-  padding: 0;
-  overflow: hidden;
-  
-  .alertContainer {
-      @extend .absPos;
-      text-align: center;
-      bottom: auto;
-      
-      .alert {
-          display: inline-block;
-          border-radius: 0 0 4px 4px;
-          margin: 0;
-      }
-  }
+    @extend .absPos;
+    padding: 0;
+    overflow: hidden;
+
+    .alert {
+        border-radius: 0 0 4px 4px;
+        z-index: 999999;
+        position: relative;
+        max-width: 500px;
+        min-width: 275px;
+        margin: 0 auto;
+        display: table;
+        text-align: center;
+    }
 }
 
 .toolbar {
-  text-align: right;
-  float: right;
-  
-  a {
-    display: inline-block;
-    text-decoration: none;
-    color: #444;
-    text-transform: uppercase;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
+    text-align: right;
+    float: right;
+
+    a {
+        display: inline-block;
+        text-decoration: none;
+        color: #444;
+        text-transform: uppercase;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
 }
 
 .header {
-  @extend .absPos;
-  bottom: auto;
-  height: $topHeight;
-  border-bottom: $border;
-  line-height: $topHeight;
-  
-  h1, h2 {
-    margin: 3px 0;
-    padding: 0;
-    padding-left: 5px;
-  }
-  
-  .toolbar {
-    padding: 5px;
-    line-height: normal;
-    
-    a {
-      margin: 0;
-      padding: 3px 7px;
-      background: #0b97c4;
-      color: #fff;
-      border-radius: 3px;
-      line-height: normal;
+    @extend .absPos;
+    bottom: auto;
+    height: $topHeight;
+    border-bottom: $border;
+    line-height: $topHeight;
+
+    h1, h2 {
+        margin: 3px 0;
+        padding: 0;
+        padding-left: 5px;
     }
-    
-    a:hover {
-      background: #0B7B9F;
+
+    .toolbar {
+        padding: 5px;
+        line-height: normal;
+
+        a {
+            margin: 0;
+            padding: 3px 7px;
+            background: #0b97c4;
+            color: #fff;
+            border-radius: 3px;
+            line-height: normal;
+        }
+
+        a:hover {
+            background: #0B7B9F;
+        }
+
+        .searchBar {
+            padding: 7px 0 5px 0;
+            line-height: 15px;
+            height: 15px;
+            display: inline-block;
+
+            label {
+                font-weight: bold;
+            }
+            input {
+                border: 1px solid $borderColor;
+                border-radius: 20px;
+                width: 300px;
+                padding: 4px 5px;
+                padding-left: 7px;
+            }
+        }
     }
-    
-    .searchBar {
-      padding: 7px 0 5px 0;
-      line-height: 15px;
-      height: 15px;
-      display: inline-block;
-      
-      label {
-        font-weight: bold;
-      }
-      input {
-        border: 1px solid $borderColor;
-        border-radius: 20px;
-        width: 300px;
-        padding: 4px 5px;
-        padding-left: 7px;
-      }
-    }
-  }
 }
 
 .leftPanel {
-  @extend .absPos;
-  right: auto;
-  top: $topHeight;
-  bottom: $bottomHeight;
-  border-right: $border;
-  overflow: auto;
-  width: $leftPanelWidth;
-  padding: 5px;
-  
-  .toolbar {
-    padding-bottom: 5px;
-    float: none;
-  }
+    @extend .absPos;
+    right: auto;
+    top: $topHeight;
+    bottom: $bottomHeight;
+    border-right: $border;
+    overflow: auto;
+    width: $leftPanelWidth;
+    padding: 5px;
+
+    .toolbar {
+        padding-bottom: 5px;
+        float: none;
+    }
 }
 
 .animate-linear {
-  -webkit-transition:all linear 0.5s;
-  transition:all linear 0.5s;
-  opacity: 1;
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+    opacity: 1;
 }
 
 .animate-left-panel-hide {
-  @extend .animate-linear;
+    @extend .animate-linear;
 }
 
 .animate-left-panel-hide.ng-hide {
-  width: 0;
-  padding: 0;
-  opacity: 0;
+    width: 0;
+    padding: 0;
+    opacity: 0;
 }
 
 .contents {
-  @extend .absPos;
-  top: $topHeight;
-  bottom: $bottomHeight;
-  overflow: auto;
-  left: $leftPanelWidth;
-  
-  .page {
-    
-    h2 {
-      margin: 0;
-      padding: 3px;
+    @extend .absPos;
+    top: $topHeight;
+    bottom: $bottomHeight;
+    overflow: auto;
+    left: $leftPanelWidth;
+
+    .page {
+
+        h2 {
+            margin: 0;
+            padding: 3px;
+        }
     }
-  }
-  
-  .page.search {
-    .searchSection {
-      text-align: center;
-      line-height: 20px;
-      margin: 15px 20px 5px 20px;
-      padding-bottom: 20px;
-      border-bottom: 1px dotted $borderColor;
-      
-      label {
-        color: #0B7B9F;
-        text-transform: uppercase;
-        padding-right: 8px;
-      }
-      
-      input {
-        padding: 5px;
-        padding-left: 10px;
-        border: 1px solid $borderColor;
-        width: 50%;
-        border-radius: 15px;
-      }
-    }
-    
-    .resultsSection {
-      margin: 20px 10px;
-    }
-  }
-  
-  .page.topic {
-    
-    .topic-title {
-      @extend .absPos;
-      bottom: auto;
-      height: 37px;
-      overflow: hidden;
-      z-index: 999;
-      box-shadow: 0px 3px 3px $borderColor;
-        
-      .toolbar {
-        right: 15px;
-        padding: 5px;
-        padding-top: 7px;
-      }
-    }
-    
-    .sectionContainer {
-      @extend .absPos;
-      top: 40px;
-      overflow: auto;
-      
-      .section {
-        margin: 6px 12px 15px 8px;
-        border: 2px solid $borderColor;
-        border-radius: 0 0 7px 7px;
-        
-        h3 {
-          margin: 0;
-          padding: 4px 8px;
-          border-bottom: 1px dotted $borderColor;
-          background: #ededed;
+
+    .page.search {
+        .searchSection {
+            text-align: center;
+            line-height: 20px;
+            margin: 15px 20px 5px 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px dotted $borderColor;
+
+            label {
+                color: #0B7B9F;
+                text-transform: uppercase;
+                padding-right: 8px;
+            }
+
+            input {
+                padding: 5px;
+                padding-left: 10px;
+                border: 1px solid $borderColor;
+                width: 50%;
+                border-radius: 15px;
+            }
         }
 
-        h4, h5, h6 {
-          margin-top: 5px;
-          margin-bottom: 4px;
+        .resultsSection {
+            margin: 20px 10px;
         }
-
-        .toolbar {
-          position: static;
-          padding-top: 5px;
-          padding-right: 5px;
-        }
-
-        .sectionHtml {
-          padding: 5px 20px 5px 30px;
-          border-radius: 0 0 7px 7px;
-          margin: 1px;
-          background: #fff;
-
-          pre {
-            margin-right: 40px;
-          }
-        }
-
-        .sectionEdit {
-          padding: 5px;
-          
-          .editContainer {
-              margin-right: 190px;
-              background: pink;
-              
-              textarea {
-                font-size: 11px;
-                line-height: normal;
-                margin-right: 200px;
-              }
-          }
-          
-          .help {
-              width:175px;
-              
-              .table td {
-                  padding: 1px 3px;
-                  font-size: 11px;
-              }
-          }
-
-          .mono {
-            font-family: Menlo, Monaco, Consolas, monospace;
-          }
-        }
-      }
     }
-  }
+
+    .page.topic {
+
+        .topic-title {
+            @extend .absPos;
+            bottom: auto;
+            height: 37px;
+            overflow: hidden;
+            z-index: 999;
+            box-shadow: 0px 3px 3px $borderColor;
+
+            .toolbar {
+                right: 15px;
+                padding: 5px;
+                padding-top: 7px;
+            }
+        }
+
+        .sectionContainer {
+            @extend .absPos;
+            top: 40px;
+            overflow: auto;
+
+            .section {
+                margin: 6px 12px 15px 8px;
+                border: 2px solid $borderColor;
+                border-radius: 0 0 7px 7px;
+
+                h3 {
+                    margin: 0;
+                    padding: 4px 8px;
+                    border-bottom: 1px dotted $borderColor;
+                    background: #ededed;
+                }
+
+                h4, h5, h6 {
+                    margin-top: 5px;
+                    margin-bottom: 4px;
+                }
+
+                .toolbar {
+                    position: static;
+                    padding-top: 5px;
+                    padding-right: 5px;
+                }
+
+                .sectionHtml {
+                    padding: 5px 20px 5px 30px;
+                    border-radius: 0 0 7px 7px;
+                    margin: 1px;
+                    background: #fff;
+
+                    pre {
+                        margin-right: 40px;
+                    }
+                }
+
+                .sectionEdit {
+                    padding: 5px;
+
+                    .editContainer {
+                        margin-right: 190px;
+                        background: pink;
+
+                        textarea {
+                            font-size: 11px;
+                            line-height: normal;
+                            margin-right: 200px;
+                        }
+                    }
+
+                    .help {
+                        width:175px;
+
+                        .table td {
+                            padding: 1px 3px;
+                            font-size: 11px;
+                        }
+                    }
+
+                    .mono {
+                        font-family: Menlo, Monaco, Consolas, monospace;
+                    }
+                }
+            }
+        }
+    }
 }
 
 /*.animate-contents {
@@ -307,95 +306,95 @@ $secondaryButtonColor: blue;
 }*/
 
 .footer {
-  @extend .absPos;
-  height: $bottomHeight;
-  top: auto;
-  bottom: 0;
-  border-top: $border;
-  line-height: $bottomHeight;
-  background: #f9f9f9;
-  font-size: 90%;
-  text-align: center;
+    @extend .absPos;
+    height: $bottomHeight;
+    top: auto;
+    bottom: 0;
+    border-top: $border;
+    line-height: $bottomHeight;
+    background: #f9f9f9;
+    font-size: 90%;
+    text-align: center;
 }
 
 form.propSheet {
-  padding-left: 10px;
-  padding-top: 10px;
-  table {
-    border: 1px solid #ccc;
-    width: 80%;
-    
-    caption {
-      text-align: left;
-      font-weight: bold;
-      background: #c8c8c8;
-      padding: 5px 3px 0px 3px;
-      border-radius: 3px 3px 0 0;
-      
-      .heading {
-        padding-left: 3px;
-        padding-top: 1px;
-        display: inline-block;
-      }
-      
-      .toolbar {
-        text-align: right;
-        margin-bottom: 5px;
-        padding-right: 5px;
+    padding-left: 10px;
+    padding-top: 10px;
+    table {
+        border: 1px solid #ccc;
+        width: 80%;
 
-        button {
-          font-size: 80%;
-          font-weight: bold;
+        caption {
+            text-align: left;
+            font-weight: bold;
+            background: #c8c8c8;
+            padding: 5px 3px 0px 3px;
+            border-radius: 3px 3px 0 0;
+
+            .heading {
+                padding-left: 3px;
+                padding-top: 1px;
+                display: inline-block;
+            }
+
+            .toolbar {
+                text-align: right;
+                margin-bottom: 5px;
+                padding-right: 5px;
+
+                button {
+                    font-size: 80%;
+                    font-weight: bold;
+                }
+            }
         }
-      }
+
+        th, td {
+            padding: 5px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background: #eee;
+            font-size: 90%;
+            font-weight: normal;
+            color: #444;
+        }
+
+        .actionCol {
+            width: 2%;
+            text-align: center;
+
+            .icon {
+                font-size: 80%;
+                color: $secondaryButtonColor;
+            }
+        }
+
+        tfoot {
+            font-size: 90%;
+            color: $helpColor;
+        }
     }
-    
-    th, td {
-      padding: 5px;
-      border: 1px solid #ccc;
-      text-align: left;
-    }
-    
-    th {
-      background: #eee;
-      font-size: 90%;
-      font-weight: normal;
-      color: #444;
-    }
-    
-    .actionCol {
-      width: 2%;
-      text-align: center;
-      
-      .icon {
-        font-size: 80%;
-        color: $secondaryButtonColor;
-      }
-    }
-    
-    tfoot {
-      font-size: 90%;
-      color: $helpColor;
-    }
-  }
 }
 
 $labelWidth: 90px;
 .modal-dialog {
-  .propSheet {
-    label {
-      width: $labelWidth;
-      text-align: right;
+    .propSheet {
+        label {
+            width: $labelWidth;
+            text-align: right;
+        }
+
+        input[type=text] {
+            border: 1px solid $borderColor;
+        }
+
+        .help {
+            font-size: 90%;
+            color: $helpColor;
+            margin-left: ($labelWidth+5);
+        }
     }
-    
-    input[type=text] {
-      border: 1px solid $borderColor;
-    }
-    
-    .help {
-      font-size: 90%;
-      color: $helpColor;
-      margin-left: ($labelWidth+5);
-    }
-  }
 }

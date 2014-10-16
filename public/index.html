@@ -20,18 +20,16 @@
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div class="appContainer">
+      <div class="alert alert-{{app.alert.type}}" ng-show="app.alert.text">
+        {{app.alert.text}}
+        <div ng-show="app.alert.details"><small><code>{{app.alert.details}}</code></small></div>
+      </div>
       <div ng-include=" 'components/header/header.html' " ng-controller="HeaderCtrl" class="header"></div>
       <div ng-include=" 'components/leftpanel/leftpanel.html'" class="leftPanel" 
            ng-controller="LeftPanelCtrl"></div>
       <div ng-view class="contents" onload="onViewLoaded()"></div>
       <div ng-include=" 'components/footer/footer.html' " ng-controller="FooterCtrl" class="footer">
         Copyright &copy; 2014, Irfan Ahmed. All Rights Reserved
-      </div>
-      <div class="alertContainer ng-hide" ng-show="app.alert.text">
-        <div class="alert alert-{{app.alert.type}}">
-          {{app.alert.text}}
-          <div ng-show="app.alert.details"><small><code>{{app.alert.details}}</code></small></div>
-        </div>
       </div>
     </div>
       

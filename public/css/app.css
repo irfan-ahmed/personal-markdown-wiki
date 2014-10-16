@@ -27,7 +27,7 @@ body {
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer; }
 
-.absPos, .appContainer, .appContainer .alertContainer, .header, .leftPanel, .contents, .contents .page.topic .topic-title, .contents .page.topic .sectionContainer, .footer {
+.absPos, .appContainer, .header, .leftPanel, .contents, .contents .page.topic .topic-title, .contents .page.topic .sectionContainer, .footer {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -37,13 +37,15 @@ body {
 .appContainer {
   padding: 0;
   overflow: hidden; }
-  .appContainer .alertContainer {
-    text-align: center;
-    bottom: auto; }
-    .appContainer .alertContainer .alert {
-      display: inline-block;
-      border-radius: 0 0 4px 4px;
-      margin: 0; }
+  .appContainer .alert {
+    border-radius: 0 0 4px 4px;
+    z-index: 999999;
+    position: relative;
+    max-width: 500px;
+    min-width: 275px;
+    margin: 0 auto;
+    display: table;
+    text-align: center; }
 
 .toolbar {
   text-align: right;
