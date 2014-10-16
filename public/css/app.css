@@ -104,6 +104,8 @@ body {
   .leftPanel .toolbar {
     padding-bottom: 5px;
     float: none; }
+  .leftPanel .accordion-toggle .heading {
+    text-transform: capitalize; }
 
 .animate-linear, .animate-left-panel-hide {
   -webkit-transition: all linear 0.5s;
@@ -147,7 +149,8 @@ body {
     overflow: hidden;
     z-index: 999;
     box-shadow: 0px 3px 3px #dddddd;
-    padding: 0 5px; }
+    padding: 0 5px;
+    text-transform: capitalize; }
     .contents .page.topic .topic-title pre {
       margin-right: 40px; }
     .contents .page.topic .topic-title .toolbar {
@@ -165,7 +168,8 @@ body {
         margin: 0;
         padding: 4px 8px;
         border-bottom: 1px dotted #dddddd;
-        background: #ededed; }
+        background: #ededed;
+        text-transform: capitalize; }
       .contents .page.topic .sectionContainer .section h4, .contents .page.topic .sectionContainer .section h5, .contents .page.topic .sectionContainer .section h6 {
         margin-top: 5px;
         margin-bottom: 4px; }

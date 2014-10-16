@@ -145,6 +145,12 @@ $secondaryButtonColor: blue;
     padding-bottom: 5px;
     float: none;
   }
+
+  .accordion-toggle {
+    .heading {
+      text-transform: capitalize;
+    }
+  }
 }
 
 .animate-linear {
@@ -216,6 +222,7 @@ $secondaryButtonColor: blue;
       z-index: 999;
       box-shadow: 0px 3px 3px $borderColor;
       padding: 0 5px;
+      text-transform: capitalize;
 
       pre {
         margin-right: 40px;
@@ -243,6 +250,7 @@ $secondaryButtonColor: blue;
           padding: 4px 8px;
           border-bottom: 1px dotted $borderColor;
           background: #ededed;
+          text-transform: capitalize;
         }
 
         h4, h5, h6 {

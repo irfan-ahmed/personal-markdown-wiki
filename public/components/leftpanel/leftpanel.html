@@ -7,7 +7,7 @@
                      ng-repeat="topic in leftPanel.topics track by $index"
                      is-open="topic.open">
       <accordion-heading>
-        <span ng-click="onTopic(topic, $index)">{{topic.label}}</span>
+        <span class="heading" ng-click="onTopic(topic, $index)">{{topic.label}}</span>
         <span class="badge pull-right">{{topic.sections.length}}</span>
       </accordion-heading>
       <!-- the sections -->
