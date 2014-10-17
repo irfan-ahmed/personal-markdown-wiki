@@ -28,8 +28,8 @@
   var module = angular.module('pmdApp.header', ['ngRoute']);
 
   module.controller('HeaderCtrl', [
-    "$scope", "$rootScope", "$location",
-    function ($scope, $rootScope, $location) {
+    "$scope", "$rootScope", "$location", "storeService", "utilsService",
+    function ($scope, $rootScope, $location, store, utils) {
       $scope.header = {
         searchText: ""
       };
@@ -39,6 +39,12 @@
         $rootScope.$broadcast("leftpanel.panel", "search");
         $location.url("/search?" + encodeURI("search=" + $scope.header.searchText));
       };
+
+      store.getClientConfig().success(function (config) {
+        $scope.header.title = config.title;
+      }).error(function (err) {
+        utils.error("Error in getting client configuration", err);
+      });
     }
   ]);
 })();

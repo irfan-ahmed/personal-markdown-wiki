@@ -56,6 +56,9 @@
           var deferred = $q.defer();
           deferred.resolve(true);
           return deferred.promise;
+        },
+        getClientConfig: function () {
+          return $http.get("/data/config/client");
         }
       };
     }

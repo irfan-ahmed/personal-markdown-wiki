@@ -28,7 +28,6 @@ var config = require("config").capitalizer;
 if(!config.ignore) {
   config.ignore = [];
 }
-console.log("Loaded Configuration", config);
 
 function _capitalizeWord(word) {
   if(!word) {

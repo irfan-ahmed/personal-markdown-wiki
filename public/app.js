@@ -42,13 +42,14 @@
   ]);
 
   module.controller("PMDAppCtrl", [
-    "$scope", "$location", "$rootScope", "$timeout",
-    function ($scope, $location, $rootScope, $timeout) {
+    "$scope", "$location", "$rootScope", "$timeout", "storeService",
+    function ($scope, $location, $rootScope, $timeout, store) {
       var MAX_TIMEOUT = 1000 * 5; // 5secs
       var MAX_ERROR_TIMEOUT = 2 * MAX_TIMEOUT;
 
       $scope.app = {
         left: "",
+        title: "Personal Markdown Wiki",
         alert: {
           type: "success",
           text: "",
@@ -77,6 +78,12 @@
         $timeout(function () {
           $scope.app.alert.text = $scope.app.alert.details = "";
         }, (alertData.type === "error" ? MAX_ERROR_TIMEOUT : MAX_TIMEOUT));
+      });
+
+      store.getClientConfig().success(function (config) {
+        console.debug("COnfig: ", config);
+        $scope.app.title = config.title;
+        console.debug($scope.app.title);
       });
     }
   ]);

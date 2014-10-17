@@ -60,7 +60,6 @@
             break;
           }
         }
-
       });
 
       $scope.onTopic = function (topic, index) {

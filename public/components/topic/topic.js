@@ -182,19 +182,6 @@
         if (section.html === undefined) {
           section.markdown = section.markdown || "";
           section.html = marked(section.markdown);
-          /*var $html = $("<div></div>").html(section.html);
-           var $links = $html.find("a");
-           var linksData = {};
-           linksData[section.title] = "#" + $location.path() + "#" + section.id;
-           $links.each(function (index, link) {
-           link = $(link);
-           if (link.attr("href").indexOf("http://") === 0) {
-           link.attr("target", "_blank");
-           }
-           linksData[link.text()] = link.attr("href");
-           });
-           section.html = $html.html();*/
-          //searchService.addAll(linksData);
         }
         return section.html;
       };

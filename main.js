@@ -29,6 +29,7 @@ var bodyParser = require('body-parser');
 var path = require("path");
 var settings = require("./modules/settings");
 var topics = require("./modules/topics");
+var config = require("config");
 
 var app = new express();
 app.set("port", process.env.PORT || 9090);
@@ -43,6 +44,14 @@ app.get("/data/settings", function (req, res) {
   }, function (error) {
     res.send(500, "Error in getting settings : ", error);
   });
+});
+
+app.get("/data/config/:id", function (req, res) {
+  var value = config[req.param("id")];
+  if (!value) {
+    value = {};
+  }
+  res.json(value);
 });
 
 app.post("/data/settings", function (req, res) {
