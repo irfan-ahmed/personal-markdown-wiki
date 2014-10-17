@@ -129,7 +129,8 @@
           var title = prompt("Specify Section Title?");
           if (title) {
             var section = newSection(title);
-            store.saveSection($scope.topic.current.id, section).success(function () {
+            store.saveSection($scope.topic.current.id, section).success(function (s) {
+              section = s;
               $scope.topic.sections.unshift(section);
               broadcastSections();
               $timeout(function () {
@@ -198,7 +199,8 @@
         var backup = section.backup;
         delete section.backup;
         delete section.html;
-        store.saveSection($scope.topic.current.id, section).success(function () {
+        store.saveSection($scope.topic.current.id, section).success(function (s) {
+          section.title = s.title;
           broadcastSections();
           utils.success("Section '" + section.title + "' saved successfully");
         }).error(function (err) {

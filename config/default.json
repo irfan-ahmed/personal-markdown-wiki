@@ -1,0 +1,7 @@
+{
+  "title": "Personal Markdown Wiki",
+  
+  "capitalizer": {
+    "ignore": ["a", "an", "of", "on", "from", "up", "and", "in", "the", "is"]
+  }
+}

@@ -131,8 +131,6 @@ body {
     float: none; }
   .leftPanel .accordion-toggle .heading {
     text-transform: capitalize; }
-  .leftPanel a {
-    text-transform: capitalize; }
 
 .animate-linear, .animate-left-panel-hide {
   -webkit-transition: all linear 0.5s;
@@ -201,7 +199,6 @@ body {
         border-bottom: 3px solid #c9c9c9; }
         .contents .page.topic .sectionContainer .section .header h4, .contents .page.topic .sectionContainer .section .header h3 {
           padding-left: 8px;
-          text-transform: capitalize;
           font-size: 18px;
           margin-bottom: 2px; }
         .contents .page.topic .sectionContainer .section .header .toolbar {
@@ -222,7 +219,8 @@ body {
           color: #666; }
         .contents .page.topic .sectionContainer .section .sectionHtml pre {
           margin-right: 40px;
-          font-size: 90%; }
+          font-size: 85%;
+          line-height: 1.2; }
       .contents .page.topic .sectionContainer .section .sectionEdit {
         padding: 5px 10px;
         overflow: hidden;

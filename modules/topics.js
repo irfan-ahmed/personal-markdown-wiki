@@ -29,6 +29,7 @@ var config = require("./settings").getConfig().config;
 var dirCreated = false;
 var ext = ".json";
 var topics = {};
+var utils = require("./utilities");
 
 module.exports.list = function (topicID) {
     console.log("Getting Sections for:", topicID);
@@ -85,6 +86,10 @@ exports.save = function (topicID, section) {
             console.log("Cannot create section with empty data...");
             reject("section object is empty");
             return;
+        }
+        // capitalize the title
+        if(section.title) {
+          section.title = utils.capitalize(section.title);
         }
         fs.writeFile(getFileName(topicID, section), JSON.stringify(section), function (err) {
             if (err) {

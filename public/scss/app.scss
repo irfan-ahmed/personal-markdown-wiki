@@ -190,10 +190,6 @@ body {
       text-transform: capitalize;
     }
   }
-
-  a {
-    text-transform: capitalize;
-  }
 }
 
 .animate-linear {
@@ -301,7 +297,6 @@ body {
 
           h4, h3 {
             padding-left: 8px;
-            text-transform: capitalize;
             font-size: 18px;
             margin-bottom: 2px;
           }
@@ -334,7 +329,8 @@ body {
 
           pre {
             margin-right: 40px;
-            font-size: 90%;
+            font-size: 85%;
+            line-height: 1.2;
           }
         }
 

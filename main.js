@@ -80,9 +80,8 @@ app.get("/data/topic/:id", function (req, res) {
 // save sections for a topic
 app.post("/data/topic/:id", function (req, res) {
   var topicID = req.param("id");
-  var section = req.body;
-  topics.save(topicID, section).then(function () {
-    res.send({success: true});
+  topics.save(topicID, req.body).then(function (section) {
+    res.send(section);
   }, function (e) {
     res.status(500).send({error: e});
   });
