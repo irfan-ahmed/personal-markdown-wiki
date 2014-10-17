@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 body {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.42857143;
   color: #333333; }
   body h1,
@@ -222,8 +222,7 @@ body {
           color: #666; }
         .contents .page.topic .sectionContainer .section .sectionHtml pre {
           margin-right: 40px;
-          font-size: 95%;
-          background: #fff; }
+          font-size: 90%; }
       .contents .page.topic .sectionContainer .section .sectionEdit {
         padding: 5px 10px;
         overflow: hidden;
