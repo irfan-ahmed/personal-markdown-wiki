@@ -178,7 +178,7 @@ body {
   overflow: auto;
   width: $leftPanelWidth;
   padding: 5px;
-  background: linear-gradient(#FFFFFF, #eee, #FBEDE3);
+  background: linear-gradient(#fff, rgba(240, 248, 255, 0.63), #E3EFFB);
 
   .toolbar {
     padding-bottom: 5px;
@@ -326,7 +326,7 @@ body {
           padding: 5px 20px 5px 30px;
           min-height: 50px;
           border-bottom: 1px solid #c9c9c9;
-          background: linear-gradient(rgba(251, 251, 251, 0.27), rgba(242, 242, 242, 0.79));
+          background: linear-gradient(rgba(228, 236, 255, 0.44),rgba(251, 251, 251, 0.27), rgba(228, 236, 255, 0.44));
 
           p {
             color: #666;

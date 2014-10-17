@@ -125,7 +125,7 @@ body {
   overflow: auto;
   width: 250px;
   padding: 5px;
-  background: linear-gradient(white, #eeeeee, #fbede3); }
+  background: linear-gradient(white, rgba(240, 248, 255, 0.63), #e3effb); }
   .leftPanel .toolbar {
     padding-bottom: 5px;
     float: none; }
@@ -217,7 +217,7 @@ body {
         padding: 5px 20px 5px 30px;
         min-height: 50px;
         border-bottom: 1px solid #c9c9c9;
-        background: linear-gradient(rgba(251, 251, 251, 0.27), rgba(242, 242, 242, 0.79)); }
+        background: linear-gradient(rgba(228, 236, 255, 0.44), rgba(251, 251, 251, 0.27), rgba(228, 236, 255, 0.44)); }
         .contents .page.topic .sectionContainer .section .sectionHtml p {
           color: #666; }
         .contents .page.topic .sectionContainer .section .sectionHtml pre {
