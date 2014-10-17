@@ -49,17 +49,25 @@
 
       // #16 table renderer for Bootstrap
       var renderer = new marked.Renderer();
+      renderer._table = renderer.table;
       renderer.table = function (header, body) {
-        return '<table class=\'table table-hover table-condensed\'>\n'
-                + '<thead>\n'
-                + header
-                + '</thead>\n'
-                + '<tbody>\n'
-                + body
-                + '</tbody>\n'
-                + '</table>\n';
+        var out = this._table(header, body);
+        var classes = "table table-hover table-condensed ";
+        out = out.replace("<table", "<table class='" + classes + "'");
+        return out;
       };
-
+      
+      // #20 external links should have target set
+      renderer._link = renderer.link;
+      renderer.link = function(href, title, text) {
+        var out = this._link(href, title, text);
+        if(href.indexOf("http") === 0) {
+          // link starts with http/https
+          out = out.replace("<a ", "<a target='new_window' ");
+        }
+        return out;
+      };
+      
       if ((typeof hljs) !== "undefined") {
         marked.setOptions({
           renderer: renderer,

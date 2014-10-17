@@ -13,7 +13,7 @@
       <!-- the sections -->
       <ol style="padding-left:20px;">
         <li ng-repeat="section in topic.sections track by $index">
-          <a class="text-primary" href="#" ng-click="showSection($event, section.id, $index)">
+          <a class="text-primary" href="#{{section.href}}" ng-click="showSection($event, section.id, $index)">
             <span style="font-size:90%">{{section.title}}</span>
           </a>
         </li>

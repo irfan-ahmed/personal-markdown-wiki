@@ -52,9 +52,11 @@
         for (var i = 0; i < $scope.leftPanel.topics.length; i++) {
           var panelTopic = $scope.leftPanel.topics[i];
           if (panelTopic.id === topicID) {
-            console.debug("Match : ", panelTopic, data.sections);
+            angular.forEach(data.sections, function(s) {
+              s.href = $location.path() + "?" + $location.search().id + 
+                      "#" + s.id; 
+            });
             panelTopic.sections = data.sections;
-            console.debug("Topic Sections:", panelTopic.sections);
             break;
           }
         }
