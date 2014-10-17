@@ -131,6 +131,8 @@ body {
     float: none; }
   .leftPanel .accordion-toggle .heading {
     text-transform: capitalize; }
+  .leftPanel .panel .panel-body {
+    padding: 7px 12px 0 12px; }
 
 .animate-linear, .animate-left-panel-hide {
   -webkit-transition: all linear 0.5s;

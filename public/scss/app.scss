@@ -190,6 +190,12 @@ body {
       text-transform: capitalize;
     }
   }
+  
+  .panel {
+    .panel-body {
+      padding: 7px 12px 0 12px;
+    }
+  }
 }
 
 .animate-linear {
