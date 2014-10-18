@@ -58,6 +58,9 @@ body {
   left: 0;
   right: 0; }
 
+.overflow-hide {
+  overflow: hidden !important; }
+
 .appContainer {
   padding: 0;
   overflow: hidden; }

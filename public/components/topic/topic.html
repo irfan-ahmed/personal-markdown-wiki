@@ -16,7 +16,7 @@
         <small class="text-muted">{{topic.current.desc}}</small>
       </h2>
     </div>
-    <div class="sectionContainer">
+    <div class="sectionContainer" ng-class="{'overflow-hide': currentEditID}">
       <div class="section" ng-repeat="section in topic.sections track by $index" 
            ng-include="'components/topic/section.html'"></div>
     </div>

@@ -86,6 +86,10 @@ body {
   right: 0;
 }
 
+.overflow-hide {
+  overflow: hidden !important;
+}
+
 .appContainer {
   @extend .absPos;
   padding: 0;
@@ -286,7 +290,7 @@ body {
         padding-top: 7px;
       }
     }
-
+    
     .sectionContainer {
       @extend .absPos;
       top: 38px;
