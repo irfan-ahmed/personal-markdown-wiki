@@ -1,4 +1,4 @@
-/* 
+/*
  * The MIT License
  *
  * Copyright 2014 Irfan Ahmed.
@@ -27,9 +27,11 @@ var favicon = require('serve-favicon');
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
 var path = require("path");
+
+var config = require("config");
 var settings = require("./modules/settings");
 var topics = require("./modules/topics");
-var config = require("config");
+var searchEngine = require("./modules/searchEngine");
 
 var app = new express();
 app.set("port", process.env.PORT || 9090);
@@ -101,6 +103,26 @@ app.post("/data/delete/section", function (req, res) {
   var params = req.body;
   topics.deleteSection(params).then(function () {
     res.json({success: true, data: params});
+  }, function (e) {
+    res.status(500).send({error: e});
+  });
+});
+
+// search
+app.post("/data/search", function (req, res) {
+  console.log("Posting search");
+  searchEngine.updateSearch(req.body).then(function () {
+    res.json({success: true});
+  }, function (e) {
+    res.status(500).send({error: e});
+  });
+});
+
+app.get("/data/search", function (req, res) {
+  var text = req.param("text");
+  console.log("getting search: ", text);
+  searchEngine.query(text).then(function (results) {
+    res.json({text: text, results: results});
   }, function (e) {
     res.status(500).send({error: e});
   });

@@ -1,4 +1,4 @@
-/* 
+/*
  * The MIT License
  *
  * Copyright 2014 Irfan Ahmed.
@@ -29,7 +29,8 @@
 
   module.controller("LeftPanelCtrl", [
     "$scope", "storeService", "$location", "$modal", "$timeout", "utilsService",
-    function ($scope, store, $location, $modal, $timeout, utils) {
+    "searchService",
+    function ($scope, store, $location, $modal, $timeout, utils, search) {
       var panelNames = ["topics", "settings", "search"];
 
       $scope.leftPanel = {
@@ -52,10 +53,13 @@
         for (var i = 0; i < $scope.leftPanel.topics.length; i++) {
           var panelTopic = $scope.leftPanel.topics[i];
           if (panelTopic.id === topicID) {
-            angular.forEach(data.sections, function(s) {
-              s.href = $location.path() + "?" + $location.search().id + 
-                      "#" + s.id; 
+            var searchData = {};
+            angular.forEach(data.sections, function (s) {
+              s.href = $location.path() + "?id=" + $location.search().id +
+                      "#" + s.id;
+              searchData[s.title] = s.href;
             });
+            search.updateSearch(searchData);
             panelTopic.sections = data.sections;
             break;
           }
@@ -92,16 +96,13 @@
         });
       };
 
-      $scope.showSection = function (e, id, index) {
-        e.preventDefault();
-        console.debug("Showing Section : ", id);
-        $location.hash(id);
-      };
-
       $scope.backToTopics = function () {
-        // TODO store the old link and move back to that location
         console.debug("Current Topic: ", $scope.leftPanel.currentTopic);
-        $location.url("/topic?id=" + $scope.leftPanel.currentTopic.id);
+        if (!$scope.leftPanel.currentTopic) {
+          $location.url("/topic");
+        } else {
+          $location.url("/topic?id=" + $scope.leftPanel.currentTopic.id);
+        }
       };
 
       store.getSettings().success(function (settings) {

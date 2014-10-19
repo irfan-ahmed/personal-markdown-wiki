@@ -1,4 +1,4 @@
-/* 
+/*
  * The MIT License
  *
  * Copyright 2014 Irfan Ahmed.
@@ -39,14 +39,15 @@
   ]);
 
   module.controller("TopicCtrl", [
-    "$scope", "$location", "storeService", "utilsService", "$timeout",
-    function ($scope, $location, store, utils, $timeout) {
+    "$scope", "$location", "storeService", "utilsService", "$timeout", "searchService",
+    function ($scope, $location, store, utils, $timeout, searchService) {
       $scope.topic = {
         current: "",
         label: "",
         sections: []
       };
 
+      var searchData = {};
       // #16 table renderer for Bootstrap
       var renderer = new marked.Renderer();
       renderer._table = renderer.table;
@@ -56,18 +57,18 @@
         out = out.replace("<table", "<table class='" + classes + "'");
         return out;
       };
-      
+
       // #20 external links should have target set
       renderer._link = renderer.link;
-      renderer.link = function(href, title, text) {
+      renderer.link = function (href, title, text) {
         var out = this._link(href, title, text);
-        if(href.indexOf("http") === 0) {
-          // link starts with http/https
+        if (href.indexOf("://") !== -1) {
           out = out.replace("<a ", "<a target='new_window' ");
         }
+        searchData[text] = href;
         return out;
       };
-      
+
       if ((typeof hljs) !== "undefined") {
         marked.setOptions({
           renderer: renderer,
@@ -99,17 +100,18 @@
           if (!settings.topics || !settings.topics.length) {
             return; //TODO show alert here
           }
+          $scope.topic.current = settings.topics[0];
           var match = settings.topics.filter(function (t) {
             return t.id === topic.id;
           })[0];
           if (match) {
             $scope.topic.current = match;
-            store.getTopicData($scope.topic.current.id).success(function (sections) {
-              console.debug("Got Sections: ", sections);
-              $scope.topic.sections = sections;
-              broadcastSections();
-            });
           }
+          store.getTopicData($scope.topic.current.id).success(function (sections) {
+            console.debug("Got Sections: ", sections);
+            $scope.topic.sections = sections;
+            broadcastSections();
+          });
         });
       }
 
@@ -119,12 +121,13 @@
         console.debug("Showing Sections for Topic: ", topic);
         showTopic(topic);
       }
-      console.debug("topic.js Current Topic: ", $location.search(), $scope.topic.current);
+      console.debug("TopicCtrl loaded: ", $location.search(), $scope.topic.current);
 
       // since reloadOnSearch is false, need to handle different topics manually as the
       // url for the topic remains the same
       $scope.$on("$routeUpdate", function (event, data) {
         var topic = $location.search();
+        console.debug("$routeUpdate: ", $scope.topic.current, topic);
         if ($scope.topic.current.id !== topic.id) {
           console.debug("Topic Changed : ", $scope.topic.current, topic);
           showTopic(topic);
@@ -143,7 +146,7 @@
               broadcastSections();
               $timeout(function () {
                 $scope.edit(section, event);
-              },0);
+              }, 0);
             }).error(function (err) {
               utils.error("Error in creating the section", err);
             });
@@ -167,9 +170,11 @@
           }
           $scope.currentEditHeight = height;
           section.backup = section.markdown;
-          $timeout(function () {
-            document.getElementById("textarea_" + section.id).focus();
-          }, 1);
+          if (!section.markdown) {
+            $timeout(function () {
+              document.getElementById("textarea_" + section.id).focus();
+            }, 1);
+          }
         }, function () {
           console.error("Not Logged In...");
         });
@@ -180,8 +185,15 @@
           return section.html;
         }
         if (section.html === undefined) {
+          // updated markdown.. update search DB also
+          searchData = {};
           section.markdown = section.markdown || "";
-          section.html = marked(section.markdown);
+          marked(section.markdown, function (err, html) {
+            if (!err) {
+              section.html = html;
+              searchService.updateSearch(searchData);
+            }
+          });
         }
         return section.html;
       };

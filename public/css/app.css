@@ -59,13 +59,12 @@ body {
   right: 0; }
 
 .overflow-hide {
-  overflow: hidden !important; }
+  /*overflow: hidden !important;*/ }
 
 .appContainer {
   padding: 0;
   overflow: hidden; }
   .appContainer .alert {
-    border-radius: 0 0 4px 4px;
     z-index: 999999;
     position: relative;
     max-width: 500px;
@@ -73,6 +72,8 @@ body {
     margin: 0 auto;
     display: table;
     text-align: center; }
+  .appContainer hr {
+    margin-bottom: 7px; }
 
 .toolbar {
   text-align: right;
@@ -152,24 +153,28 @@ body {
   bottom: 25px;
   overflow: auto;
   left: 250px; }
-  .contents .page.search .searchSection {
-    text-align: center;
-    line-height: 20px;
-    margin: 15px 20px 5px 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px dotted #dddddd; }
-    .contents .page.search .searchSection label {
-      color: #0B7B9F;
-      text-transform: uppercase;
-      padding-right: 8px; }
-    .contents .page.search .searchSection input {
-      padding: 5px;
-      padding-left: 10px;
-      border: 1px solid #dddddd;
-      width: 50%;
-      border-radius: 15px; }
-  .contents .page.search .resultsSection {
-    margin: 20px 10px; }
+  .contents .page.search .searchBar {
+    width: 50%;
+    margin-top: 15px;
+    font-size: 110%;
+    margin-bottom: 12px; }
+    .contents .page.search .searchBar input[type=text] {
+      width: 100%;
+      padding: 4px 6px;
+      border-radius: 10px;
+      border: 2px solid #dddddd; }
+  .contents .page.search .results .result {
+    width: 50%;
+    padding: 5px 20px; }
+    .contents .page.search .results .result .help-block {
+      margin-top: 0;
+      margin-bottom: 0; }
+    .contents .page.search .results .result hr {
+      height: 3px;
+      background: linear-gradient(to right, #cd6b6a, white);
+      margin-top: 5px;
+      border: none;
+      margin-bottom: 6px; }
   .contents .page.topic .topic-title {
     bottom: auto;
     height: 37px;

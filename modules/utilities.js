@@ -1,4 +1,4 @@
-/* 
+/*
  * The MIT License
  *
  * Copyright 2014 Irfan Ahmed.
@@ -24,28 +24,42 @@
 
 "use strict";
 
-var config = require("config").capitalizer;
-if(!config.ignore) {
-  config.ignore = [];
+/**
+ * A set of utilities for the wiki.
+ * TODO:// move all utils from settings to this file
+ */
+
+var config = require("config");
+var path = require("path");
+
+var capsConfig = config.capitalizer;
+if (!capsConfig.ignore) {
+  capsConfig.ignore = [];
 }
+var dataDir = path.join(__dirname, "..", "data");
+var searchFile = path.join(dataDir, "search.json");
 
 function _capitalizeWord(word) {
-  if(!word) {
+  if (!word) {
     return word;
   }
-  return word.substring(0,1).toUpperCase() + word.substring(1);
+  return word.substring(0, 1).toUpperCase() + word.substring(1);
 }
 
-module.exports.capitalize = function(text) {
+module.exports.capitalize = function (text) {
   console.log("Capitalizing ", text);
   var words = text.split(" ");
   var sentence = [];
-  words.forEach(function(word, index) {
-    if(config.ignore.indexOf(word) === -1 || index===0) {
+  words.forEach(function (word, index) {
+    if (capsConfig.ignore.indexOf(word) === -1 || index === 0) {
       // word not in ignore list or first word of the sentence
       word = _capitalizeWord(word);
     }
     sentence.push(word);
   });
   return sentence.join(" ");
+};
+
+module.exports.getSearchFileName = function () {
+  return searchFile;
 };

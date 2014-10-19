@@ -1,7 +1,23 @@
 <div class="page search">
-  <div class="searchSection">
-    <label>Search:</label>
-    <input type="text" ng-model="search.text" ng-enter="searchText()"/>
+  <div class="center-block searchBar">
+    <input type="text" ng-model="search.searchText" ng-keypress="$event.which===13?searchText($event):0"
+           autofocus="true"/>
   </div>
-  <div class="resultsSection"></div>
+  <button type="button" class="btn btn-primary btn-sm center-block">Search</button>
+  <div class="alert alert-danger" style="margin-top:10px;"
+       ng-show="search.noResultsText">{{search.noResultsText}}</div>
+  <hr/>
+  <div class="center-block results">
+    <div ng-repeat="(link,data) in search.links track by $index" class="pull-left result"
+         style="overflow: hidden">
+      <a href="{{data.external?link:'#'+link}}" ng-class="{external: data.external}" target="{{data.external?'_blank':'_self'}}">
+        <span ng-bind-html="data.text" style="word-break: break-all"></span>
+      </a>
+      <div class="help-block">
+        <span class="text-muted">{{formatLink(link)}}</span>
+        <span class="text-danger" ng-show="{{data.external}}">[External link]</span>
+      </div>
+      <hr/>
+    </div>
+  </div>
 </div>

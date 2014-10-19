@@ -5,5 +5,10 @@
   
   "capitalizer": {
     "ignore": ["a", "an", "of", "on", "from", "up", "and", "in", "the", "is"]
+  },
+  
+  "search" : {
+    "ignore": ["to", "for", "a", "the", "is", "us", "com", "org", "net", "and", 
+      "an", "on", "in"]
   }
 }

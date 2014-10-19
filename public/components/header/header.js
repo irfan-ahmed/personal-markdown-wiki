@@ -1,4 +1,4 @@
-/* 
+/*
  * The MIT License
  *
  * Copyright 2014 Irfan Ahmed.
@@ -37,7 +37,7 @@
       $scope.search = function () {
         console.debug("Searching for: ", $scope.header.searchText);
         $rootScope.$broadcast("leftpanel.panel", "search");
-        $location.url("/search?" + encodeURI("search=" + $scope.header.searchText));
+        $location.url("/search?" + encodeURI("text=" + $scope.header.searchText));
       };
 
       store.getClientConfig().success(function (config) {
