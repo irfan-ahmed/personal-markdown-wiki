@@ -1,10 +1,10 @@
 [![Dependency Status](https://david-dm.org/irfan-ahmed/personal-markdown-wiki.png)](https://david-dm.org/irfan-ahmed/personal-markdown-wiki)
 [![devDependency Status](https://david-dm.org/irfan-ahmed/personal-markdown-wiki/dev-status.png)](https://david-dm.org/irfan-ahmed/personal-markdown-wiki#info=devDependencies)
 
-personal-markdown-wiki
-======================
+Personal Markdown Wiki with Search
+===================================
 
-A simple angular-js and node based personal inline-editable wiki.
+A simple angular-js and node based personal inline-editable wiki with search functionality
 
 ##Why?
 Just needed a personal simple wiki like web application where small snippets of information can be stored. The idea is to store information that may not be available publicly on a blog or somewhere. Also since the wiki can do inline editing for only the section, it makes it very easy to update and store the data on the go. 
